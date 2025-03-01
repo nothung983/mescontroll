@@ -31,10 +31,13 @@
             dgvDevice = new DataGridView();
             label1 = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
+            cboType = new ComboBox();
             label4 = new Label();
             txtSearch = new TextBox();
             label3 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            cboStatus = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvDevice).BeginInit();
             SuspendLayout();
             // 
@@ -47,7 +50,9 @@
             dgvDevice.Name = "dgvDevice";
             dgvDevice.RowHeadersWidth = 51;
             dgvDevice.Size = new Size(1165, 413);
-            dgvDevice.TabIndex = 0;            // 
+            dgvDevice.TabIndex = 0;
+            dgvDevice.CellContentClick += dgvDevice_CellContentClick;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -68,13 +73,15 @@
             label2.TabIndex = 2;
             label2.Text = "Filter :";
             // 
-            // comboBox1
+            // cboType
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(622, 76);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(131, 28);
-            comboBox1.TabIndex = 3;
+            cboType.FormattingEnabled = true;
+            cboType.Items.AddRange(new object[] { "All", "Camera", "Lens", "Accessory" });
+            cboType.Location = new Point(622, 76);
+            cboType.Name = "cboType";
+            cboType.Size = new Size(131, 28);
+            cboType.TabIndex = 3;
+            cboType.SelectedIndexChanged += cboType_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -102,15 +109,45 @@
             label3.TabIndex = 4;
             label3.Text = "Type";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(784, 81);
+            label5.Name = "label5";
+            label5.Size = new Size(0, 20);
+            label5.TabIndex = 7;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(768, 80);
+            label6.Name = "label6";
+            label6.Size = new Size(49, 20);
+            label6.TabIndex = 8;
+            label6.Text = "Status";
+            // 
+            // cboStatus
+            // 
+            cboStatus.FormattingEnabled = true;
+            cboStatus.Items.AddRange(new object[] { "All", "Available", "Booked", "Under Maintenance" });
+            cboStatus.Location = new Point(823, 77);
+            cboStatus.Name = "cboStatus";
+            cboStatus.Size = new Size(131, 28);
+            cboStatus.TabIndex = 3;
+            cboStatus.SelectedIndexChanged += cboStatus_SelectedIndexChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1245, 545);
+            Controls.Add(label6);
+            Controls.Add(label5);
             Controls.Add(txtSearch);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(comboBox1);
+            Controls.Add(cboStatus);
+            Controls.Add(cboType);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvDevice);
@@ -127,9 +164,12 @@
         private DataGridView dgvDevice;
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox cboType;
         private Label label4;
         private TextBox txtSearch;
         private Label label3;
+        private Label label5;
+        private Label label6;
+        private ComboBox cboStatus;
     }
 }
