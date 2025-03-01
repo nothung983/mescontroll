@@ -6,6 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
+      "MesControlApp/1.0.0": {
+        "dependencies": {
+          "System.Data.SqlClient": "4.9.0"
+        },
+        "runtime": {
+          "MesControlApp.dll": {}
+        }
+      },
       "runtime.native.System.Data.SqlClient.sni/4.4.0": {
         "dependencies": {
           "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni": "4.4.0",
@@ -68,6 +76,11 @@
     }
   },
   "libraries": {
+    "MesControlApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "runtime.native.System.Data.SqlClient.sni/4.4.0": {
       "type": "package",
       "serviceable": true,
