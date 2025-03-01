@@ -33,7 +33,7 @@
             label2 = new Label();
             comboBox1 = new ComboBox();
             label4 = new Label();
-            textBox1 = new TextBox();
+            txtSearch = new TextBox();
             label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDevice).BeginInit();
             SuspendLayout();
@@ -47,9 +47,7 @@
             dgvDevice.Name = "dgvDevice";
             dgvDevice.RowHeadersWidth = 51;
             dgvDevice.Size = new Size(1165, 413);
-            dgvDevice.TabIndex = 0;
-            dgvDevice.CellContentClick += dataGridView1_CellContentClick;
-            // 
+            dgvDevice.TabIndex = 0;            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -87,12 +85,13 @@
             label4.TabIndex = 5;
             label4.Text = "Search";
             // 
-            // textBox1
+            // txtSearch
             // 
-            textBox1.Location = new Point(284, 77);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(209, 27);
-            textBox1.TabIndex = 6;
+            txtSearch.Location = new Point(284, 81);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(209, 27);
+            txtSearch.TabIndex = 6;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // label3
             // 
@@ -108,7 +107,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1245, 545);
-            Controls.Add(textBox1);
+            Controls.Add(txtSearch);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(comboBox1);
@@ -130,7 +129,7 @@
         private Label label2;
         private ComboBox comboBox1;
         private Label label4;
-        private TextBox textBox1;
+        private TextBox txtSearch;
         private Label label3;
     }
 }
