@@ -2,18 +2,26 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Media_Device_Management;
 
 namespace MesControlApp
 {
-    public partial class Form1 : Form
+    public partial class DeviceList : Form
     {
-        public Form1()
+        public DeviceList()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (Session.userID == 0) 
+            { 
+                this.Close();
+                Login login = new Login(); 
+                login.Show();
+            }
+            hello.Text = "Hello " + Session.name;
             LoadData("", cboType.SelectedItem?.ToString(), cboStatus.SelectedItem?.ToString()); // Hiển thị toàn bộ dữ liệu khi mở form
                                                                                                 // Tạo một cột mới kiểu Button
             DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();

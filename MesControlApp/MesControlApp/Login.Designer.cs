@@ -42,10 +42,10 @@
             // Logintxt
             // 
             Logintxt.AutoSize = true;
-            Logintxt.Font = new Font("Heavitas", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Logintxt.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Logintxt.Location = new Point(499, 94);
             Logintxt.Name = "Logintxt";
-            Logintxt.Size = new Size(115, 37);
+            Logintxt.Size = new Size(85, 32);
             Logintxt.TabIndex = 0;
             Logintxt.Text = "Login";
             // 
@@ -74,6 +74,7 @@
             passtxt.Location = new Point(412, 279);
             passtxt.Margin = new Padding(3, 4, 3, 4);
             passtxt.Name = "passtxt";
+            passtxt.PasswordChar = '*';
             passtxt.Size = new Size(276, 27);
             passtxt.TabIndex = 3;
             passtxt.TextChanged += passtxt_TextChanged;
@@ -92,10 +93,10 @@
             // PhoneNumber
             // 
             PhoneNumber.AutoSize = true;
-            PhoneNumber.Font = new Font("Be Vietnam Pro", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PhoneNumber.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             PhoneNumber.Location = new Point(409, 149);
             PhoneNumber.Name = "PhoneNumber";
-            PhoneNumber.Size = new Size(141, 28);
+            PhoneNumber.Size = new Size(130, 22);
             PhoneNumber.TabIndex = 5;
             PhoneNumber.Text = "Phone Number";
             PhoneNumber.Click += label2_Click;
@@ -103,10 +104,10 @@
             // Password
             // 
             Password.AutoSize = true;
-            Password.Font = new Font("Be Vietnam Pro", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Password.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Password.Location = new Point(409, 238);
             Password.Name = "Password";
-            Password.Size = new Size(100, 28);
+            Password.Size = new Size(89, 22);
             Password.TabIndex = 6;
             Password.Text = "Password";
             // 
@@ -125,6 +126,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Login";
             Text = "Login";
+            Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

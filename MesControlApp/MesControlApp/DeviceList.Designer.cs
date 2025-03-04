@@ -1,6 +1,6 @@
 ﻿namespace MesControlApp
 {
-    partial class Form1
+    partial class DeviceList
     {
         /// <summary>
         ///  Required designer variable.
@@ -38,6 +38,7 @@
             label5 = new Label();
             label6 = new Label();
             cboStatus = new ComboBox();
+            hello = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDevice).BeginInit();
             SuspendLayout();
             // 
@@ -136,11 +137,21 @@
             cboStatus.TabIndex = 3;
             cboStatus.SelectedIndexChanged += cboStatus_SelectedIndexChanged;
             // 
-            // Form1
+            // hello
+            // 
+            hello.AutoSize = true;
+            hello.Location = new Point(28, 19);
+            hello.Name = "hello";
+            hello.Size = new Size(50, 20);
+            hello.TabIndex = 9;
+            hello.Text = "label7";
+            // 
+            // DeviceList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1245, 545);
+            Controls.Add(hello);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(txtSearch);
@@ -151,7 +162,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvDevice);
-            Name = "Form1";
+            Name = "DeviceList";
             Text = "Device List";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDevice).EndInit();
@@ -171,5 +182,6 @@
         private Label label5;
         private Label label6;
         private ComboBox cboStatus;
+        private Label hello;
     }
 }
