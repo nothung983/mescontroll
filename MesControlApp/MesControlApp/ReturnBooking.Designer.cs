@@ -52,6 +52,7 @@
             dgvMyBooking.RowHeadersWidth = 51;
             dgvMyBooking.Size = new Size(925, 358);
             dgvMyBooking.TabIndex = 1;
+            dgvMyBooking.CellContentClick += dgvMyBooking_CellContentClick_1;
             // 
             // ReturnBooking
             // 
@@ -62,6 +63,7 @@
             Controls.Add(label1);
             Name = "ReturnBooking";
             Text = "ReturnBooking";
+            Load += ReturnBooking_Load;
             ((System.ComponentModel.ISupportInitialize)dgvMyBooking).EndInit();
             ResumeLayout(false);
             PerformLayout();
