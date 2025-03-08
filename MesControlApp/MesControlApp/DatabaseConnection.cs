@@ -17,7 +17,7 @@ namespace MesControlApp
         {
             try
             {
-                connection = new SqlConnection("Server=DESKTOP-PK93L7G\\SQLEXPRESS;Database=mediaz_db;Integrated Security=True;");
+                connection = new SqlConnection("Data Source=KIMTRONG\\MSSQLSERVER01;Initial Catalog=mediaz_db;Integrated Security=True");
                 connection.Open();
                 
             }

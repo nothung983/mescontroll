@@ -14,6 +14,9 @@ namespace Media_Device_Management
 {
     public partial class Login : Form
     {
+
+        //lưa userId
+        public static string LoggedInUserId { get; private set; }
         public Login()
         {
             InitializeComponent();
@@ -59,6 +62,14 @@ namespace Media_Device_Management
                     string userId = reader["UserID"].ToString();
                     string userRole = reader["User_Role"].ToString();
                     MessageBox.Show($"Login successful! User ID: {userId}, Role: {userRole}");
+
+                    //lưu userId vào biến
+                    LoggedInUserId = userId;
+
+                    mydevice mydevice = new mydevice();
+                    mydevice.ShowDialog();
+                    this.Close();
+
                 }
                 else
                 {
