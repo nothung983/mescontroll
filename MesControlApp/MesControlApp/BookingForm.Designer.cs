@@ -34,8 +34,8 @@
             label4 = new Label();
             label5 = new Label();
             txtUsrID = new TextBox();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            startDate = new DateTimePicker();
+            endDate = new DateTimePicker();
             label6 = new Label();
             textBox3 = new TextBox();
             cboCam = new ComboBox();
@@ -103,21 +103,21 @@
             txtUsrID.Size = new Size(205, 27);
             txtUsrID.TabIndex = 5;
             // 
-            // dateTimePicker1
+            // startDate
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(140, 365);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(126, 27);
-            dateTimePicker1.TabIndex = 7;
+            startDate.Format = DateTimePickerFormat.Short;
+            startDate.Location = new Point(140, 365);
+            startDate.Name = "startDate";
+            startDate.Size = new Size(126, 27);
+            startDate.TabIndex = 7;
             // 
-            // dateTimePicker2
+            // endDate
             // 
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(140, 430);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(126, 27);
-            dateTimePicker2.TabIndex = 8;
+            endDate.Format = DateTimePickerFormat.Short;
+            endDate.Location = new Point(140, 430);
+            endDate.Name = "endDate";
+            endDate.Size = new Size(126, 27);
+            endDate.TabIndex = 8;
             // 
             // label6
             // 
@@ -201,8 +201,8 @@
             Controls.Add(cboCam);
             Controls.Add(textBox3);
             Controls.Add(label6);
-            Controls.Add(dateTimePicker2);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(endDate);
+            Controls.Add(startDate);
             Controls.Add(txtUsrID);
             Controls.Add(label8);
             Controls.Add(label5);
@@ -226,8 +226,8 @@
         private Label label4;
         private Label label5;
         private TextBox txtUsrID;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker startDate;
+        private DateTimePicker endDate;
         private Label label6;
         private TextBox textBox3;
         private ComboBox cboCam;
