@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MesControlApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8b9057a2bb1429e65b73c97a40485222728e06a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a2bb0ae2ec2a3fcdf45f4249c8723917b8cf13c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MesControlApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MesControlApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

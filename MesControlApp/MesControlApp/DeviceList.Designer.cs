@@ -38,7 +38,7 @@
             label5 = new Label();
             label6 = new Label();
             cboStatus = new ComboBox();
-            hello = new Label();
+            btnBooking = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDevice).BeginInit();
             SuspendLayout();
             // 
@@ -137,21 +137,25 @@
             cboStatus.TabIndex = 3;
             cboStatus.SelectedIndexChanged += cboStatus_SelectedIndexChanged;
             // 
-            // hello
+            // btnBooking
             // 
-            hello.AutoSize = true;
-            hello.Location = new Point(28, 19);
-            hello.Name = "hello";
-            hello.Size = new Size(50, 20);
-            hello.TabIndex = 9;
-            hello.Text = "label7";
+            btnBooking.BackColor = Color.Cyan;
+            btnBooking.FlatStyle = FlatStyle.Popup;
+            btnBooking.ForeColor = SystemColors.ActiveCaptionText;
+            btnBooking.Location = new Point(1035, 62);
+            btnBooking.Name = "btnBooking";
+            btnBooking.Size = new Size(158, 44);
+            btnBooking.TabIndex = 9;
+            btnBooking.Text = "Device Booking";
+            btnBooking.UseVisualStyleBackColor = false;
+            btnBooking.Click += btnBooking_Click;
             // 
             // DeviceList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1245, 545);
-            Controls.Add(hello);
+            Controls.Add(btnBooking);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(txtSearch);
@@ -182,6 +186,6 @@
         private Label label5;
         private Label label6;
         private ComboBox cboStatus;
-        private Label hello;
+        private Button btnBooking;
     }
 }

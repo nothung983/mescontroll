@@ -33,14 +33,17 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtUsrID = new TextBox();
             dateTimePicker1 = new DateTimePicker();
             dateTimePicker2 = new DateTimePicker();
             label6 = new Label();
             textBox3 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
+            cboCam = new ComboBox();
+            label7 = new Label();
+            cboLens = new ComboBox();
+            label8 = new Label();
+            cboAcc = new ComboBox();
+            btnBook = new Button();
             SuspendLayout();
             // 
             // label1
@@ -69,14 +72,15 @@
             label3.AutoSize = true;
             label3.Location = new Point(41, 162);
             label3.Name = "label3";
-            label3.Size = new Size(98, 20);
+            label3.Size = new Size(60, 20);
             label3.TabIndex = 2;
-            label3.Text = "Device Name";
+            label3.Text = "Camera";
+            label3.Click += label3_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(41, 230);
+            label4.Location = new Point(41, 372);
             label4.Name = "label4";
             label4.Size = new Size(70, 20);
             label4.TabIndex = 3;
@@ -85,32 +89,24 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(41, 295);
+            label5.Location = new Point(41, 437);
             label5.Name = "label5";
             label5.Size = new Size(64, 20);
             label5.TabIndex = 4;
             label5.Text = "End Day";
             // 
-            // textBox1
+            // txtUsrID
             // 
-            textBox1.Location = new Point(145, 99);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(205, 27);
-            textBox1.TabIndex = 5;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(145, 155);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(205, 27);
-            textBox2.TabIndex = 6;
+            txtUsrID.Location = new Point(145, 95);
+            txtUsrID.Name = "txtUsrID";
+            txtUsrID.ReadOnly = true;
+            txtUsrID.Size = new Size(205, 27);
+            txtUsrID.TabIndex = 5;
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(140, 223);
+            dateTimePicker1.Location = new Point(140, 365);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(126, 27);
             dateTimePicker1.TabIndex = 7;
@@ -118,7 +114,7 @@
             // dateTimePicker2
             // 
             dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(140, 288);
+            dateTimePicker2.Location = new Point(140, 430);
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new Size(126, 27);
             dateTimePicker2.TabIndex = 8;
@@ -126,7 +122,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(41, 368);
+            label6.Location = new Point(41, 510);
             label6.Name = "label6";
             label6.Size = new Size(57, 20);
             label6.TabIndex = 9;
@@ -134,50 +130,90 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(140, 365);
+            textBox3.Location = new Point(140, 507);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(332, 136);
             textBox3.TabIndex = 10;
             // 
-            // button1
+            // cboCam
             // 
-            button1.Location = new Point(117, 537);
-            button1.Name = "button1";
-            button1.Size = new Size(105, 42);
-            button1.TabIndex = 11;
-            button1.Text = "Cancel";
-            button1.UseVisualStyleBackColor = true;
+            cboCam.FormattingEnabled = true;
+            cboCam.Location = new Point(145, 154);
+            cboCam.Name = "cboCam";
+            cboCam.Size = new Size(205, 28);
+            cboCam.TabIndex = 12;
             // 
-            // button2
+            // label7
             // 
-            button2.Location = new Point(311, 537);
-            button2.Name = "button2";
-            button2.Size = new Size(105, 42);
-            button2.TabIndex = 11;
-            button2.Text = "Send";
-            button2.UseVisualStyleBackColor = true;
+            label7.AutoSize = true;
+            label7.Location = new Point(41, 232);
+            label7.Name = "label7";
+            label7.Size = new Size(38, 20);
+            label7.TabIndex = 2;
+            label7.Text = "Lens";
+            label7.Click += label3_Click;
+            // 
+            // cboLens
+            // 
+            cboLens.FormattingEnabled = true;
+            cboLens.Location = new Point(145, 224);
+            cboLens.Name = "cboLens";
+            cboLens.Size = new Size(205, 28);
+            cboLens.TabIndex = 12;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(41, 299);
+            label8.Name = "label8";
+            label8.Size = new Size(74, 20);
+            label8.TabIndex = 2;
+            label8.Text = "Accessory";
+            label8.Click += label3_Click;
+            // 
+            // cboAcc
+            // 
+            cboAcc.FormattingEnabled = true;
+            cboAcc.Location = new Point(145, 291);
+            cboAcc.Name = "cboAcc";
+            cboAcc.Size = new Size(205, 28);
+            cboAcc.TabIndex = 12;
+            // 
+            // btnBook
+            // 
+            btnBook.Location = new Point(171, 678);
+            btnBook.Name = "btnBook";
+            btnBook.Size = new Size(140, 38);
+            btnBook.TabIndex = 13;
+            btnBook.Text = "Book";
+            btnBook.UseVisualStyleBackColor = true;
+            btnBook.Click += btnBook_Click;
             // 
             // BookingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(550, 591);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(550, 749);
+            Controls.Add(btnBook);
+            Controls.Add(cboAcc);
+            Controls.Add(cboLens);
+            Controls.Add(cboCam);
             Controls.Add(textBox3);
             Controls.Add(label6);
             Controls.Add(dateTimePicker2);
             Controls.Add(dateTimePicker1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtUsrID);
+            Controls.Add(label8);
             Controls.Add(label5);
+            Controls.Add(label7);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "BookingForm";
             Text = "BookingForm";
+            Load += BookingForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -189,13 +225,16 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtUsrID;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
         private Label label6;
         private TextBox textBox3;
-        private Button button1;
-        private Button button2;
+        private ComboBox cboCam;
+        private Label label7;
+        private ComboBox cboLens;
+        private Label label8;
+        private ComboBox cboAcc;
+        private Button btnBook;
     }
 }
