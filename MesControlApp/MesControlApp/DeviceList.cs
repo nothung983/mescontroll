@@ -150,5 +150,12 @@ namespace MesControlApp
             BookingForm bk = new BookingForm();
             bk.ShowDialog();
         }
+
+        private void btnReturnBooking_Click(object sender, EventArgs e)
+        {
+            ReturnBooking rk = new ReturnBooking();
+            rk.ShowDialog();
+            MessageBox.Show(Session.userID.ToString());
+        }
     }
 }
