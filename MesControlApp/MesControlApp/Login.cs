@@ -60,8 +60,10 @@ namespace Media_Device_Management
                     Session.role = reader.GetString(1);
                     Session.name = reader.GetString(2);
                     this.Hide();
-                    DeviceList deviceList = new DeviceList();
-                    deviceList.Show();
+                    //DeviceList deviceList = new DeviceList();
+                    //deviceList.Show();
+                    mydevice mydevice = new mydevice();
+                    mydevice.Show();
                     
 
                 }
