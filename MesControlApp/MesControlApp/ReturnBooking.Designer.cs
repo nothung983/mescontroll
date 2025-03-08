@@ -37,7 +37,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(366, 33);
+            label1.Location = new Point(433, 36);
             label1.Name = "label1";
             label1.Size = new Size(215, 46);
             label1.TabIndex = 0;
@@ -47,18 +47,18 @@
             // dgvMyBooking
             // 
             dgvMyBooking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMyBooking.Location = new Point(12, 119);
+            dgvMyBooking.Location = new Point(12, 128);
             dgvMyBooking.Name = "dgvMyBooking";
             dgvMyBooking.RowHeadersWidth = 51;
-            dgvMyBooking.Size = new Size(925, 358);
+            dgvMyBooking.Size = new Size(1034, 457);
             dgvMyBooking.TabIndex = 1;
-            dgvMyBooking.CellContentClick += dgvMyBooking_CellContentClick_1;
+            dgvMyBooking.CellContentClick += dgvMyBooking_CellContentClick;
             // 
             // ReturnBooking
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(949, 491);
+            ClientSize = new Size(1058, 597);
             Controls.Add(dgvMyBooking);
             Controls.Add(label1);
             Name = "ReturnBooking";

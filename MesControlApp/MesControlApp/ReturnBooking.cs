@@ -94,16 +94,14 @@ namespace MesControlApp
 
                 DataTable dta = new DataTable();
                 da.Fill(dta);
-
-                // Thêm cột Action chứa nút Return
-                dta.Columns.Add("Action", typeof(string));
-                foreach (DataRow row in dta.Rows)
-                {
-                    row["Action"] = "Return";
-                }
-
                 dgvMyBooking.DataSource = dta;
                 dgvMyBooking.Refresh();
+                DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+                btnColumn.HeaderText = "Action";
+                btnColumn.Text = "Return";
+                btnColumn.Name = "btnReturn";
+                btnColumn.UseColumnTextForButtonValue = true;
+                dgvMyBooking.Columns.Add(btnColumn);
             }
             catch (Exception ex)
             {
@@ -114,15 +112,73 @@ namespace MesControlApp
                 DatabaseConnection.CloseConnect();
             }
         }
+
+
         private void dgvMyBooking_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == dgvMyBooking.Columns["btnReturn"].Index && e.RowIndex >= 0)
+            {
+                // Lấy thông tin hàng được chọn
+                int bookingID = Convert.ToInt32(dgvMyBooking.Rows[e.RowIndex].Cells["ID"].Value);
+                string deviceType = dgvMyBooking.Rows[e.RowIndex].Cells["Device_Type"].Value.ToString();
 
+                if (ReturnDevice(bookingID, deviceType))
+                {
+                    MessageBox.Show($"{deviceType} của bạn đã được trả về!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData(Session.userID); // Tải lại danh sách sau khi cập nhật
+                }
+                else
+                {
+                    MessageBox.Show("Có lỗi xảy ra khi trả thiết bị!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
-        private void dgvMyBooking_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private bool ReturnDevice(int bookingID, string deviceType)
         {
+            string columnToUpdate = "";
+            switch (deviceType)
+            {
+                case "Camera":
+                    columnToUpdate = "CameraID";
+                    break;
+                case "Lens":
+                    columnToUpdate = "LensID";
+                    break;
+                case "Accessory":
+                    columnToUpdate = "AccessoryID";
+                    break;
+                default:
+                    return false;
+            }
 
+            string query = $@"
+                UPDATE Bookings 
+                SET {columnToUpdate} = NULL
+                WHERE {columnToUpdate} = @BookingID;
+                DELETE FROM Bookings 
+                WHERE CameraID IS NULL AND LensID IS NULL AND AccessoryID IS NULL;
+                ";
+
+            try
+            {
+                DatabaseConnection.Connect();
+                SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                cmd.Parameters.AddWithValue("@BookingID", bookingID);
+                int rowsAffected = cmd.ExecuteNonQuery();
+                return rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                DatabaseConnection.CloseConnect();
+            }
         }
+
 
 
     }
