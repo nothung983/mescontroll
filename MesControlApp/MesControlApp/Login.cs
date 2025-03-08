@@ -48,7 +48,7 @@ namespace Media_Device_Management
             try
             {
                 DatabaseConnection.Connect();
-                string query = "SELECT UserID, User_Role FROM Users WHERE User_Phone_Num = @PhoneNumber AND User_Pass = @Password";
+                string query = "SELECT UserID, User_Role, User_fullname FROM Users WHERE User_Phone_Num = @PhoneNumber AND User_Pass = @Password";
                 SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
                 cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                 cmd.Parameters.AddWithValue("@Password", password);
@@ -56,9 +56,14 @@ namespace Media_Device_Management
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    string userId = reader["UserID"].ToString();
-                    string userRole = reader["User_Role"].ToString();
-                    MessageBox.Show($"Login successful! User ID: {userId}, Role: {userRole}");
+                    Session.userID = reader.GetInt32(0);
+                    Session.role = reader.GetString(1);
+                    Session.name = reader.GetString(2);
+                    this.Hide();
+                    DeviceList deviceList = new DeviceList();
+                    deviceList.Show();
+                    
+
                 }
                 else
                 {
@@ -74,6 +79,11 @@ namespace Media_Device_Management
             {
                 DatabaseConnection.CloseConnect();
             }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

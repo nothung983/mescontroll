@@ -2,26 +2,33 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Media_Device_Management;
 
 namespace MesControlApp
 {
-    public partial class Form1 : Form
+    public partial class DeviceList : Form
     {
-        public Form1()
+        public DeviceList()
         {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (Session.userID == 0)
+            {
+                this.Close();
+                Login login = new Login();
+                login.Show();
+            }
             LoadData("", cboType.SelectedItem?.ToString(), cboStatus.SelectedItem?.ToString()); // Hiển thị toàn bộ dữ liệu khi mở form
-                                                                                                // Tạo một cột mới kiểu Button
-            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            btnColumn.HeaderText = "Action";
-            btnColumn.Text = "Book";
-            btnColumn.Name = "btnBook";
-            btnColumn.UseColumnTextForButtonValue = true;
-            dgvDevice.Columns.Add(btnColumn);
+
+            //DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            //btnColumn.HeaderText = "Action";
+            //btnColumn.Text = "Book";
+            //btnColumn.Name = "btnBook";
+            //btnColumn.UseColumnTextForButtonValue = true;
+            //dgvDevice.Columns.Add(btnColumn);
 
         }
 
@@ -135,18 +142,13 @@ namespace MesControlApp
 
         private void dgvDevice_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == dgvDevice.Columns["btnBook"].Index && e.RowIndex >= 0)
-            {
-                string status = dgvDevice.Rows[e.RowIndex].Cells["Booking_Status"].Value.ToString();
 
-                if(status == "Booked")
-                {
-                    MessageBox.Show("This device has already booked");
-                    return;
-                }
-                string deviceName = dgvDevice.Rows[e.RowIndex].Cells["Device_Name"].Value.ToString();
-                MessageBox.Show($"You has been book: {deviceName}", "Thông Báo");
-            }
+        }
+
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+            BookingForm bk = new BookingForm();
+            bk.ShowDialog();
         }
     }
 }

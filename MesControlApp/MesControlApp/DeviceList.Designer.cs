@@ -1,6 +1,6 @@
 ﻿namespace MesControlApp
 {
-    partial class Form1
+    partial class DeviceList
     {
         /// <summary>
         ///  Required designer variable.
@@ -38,6 +38,7 @@
             label5 = new Label();
             label6 = new Label();
             cboStatus = new ComboBox();
+            btnBooking = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDevice).BeginInit();
             SuspendLayout();
             // 
@@ -136,11 +137,25 @@
             cboStatus.TabIndex = 3;
             cboStatus.SelectedIndexChanged += cboStatus_SelectedIndexChanged;
             // 
-            // Form1
+            // btnBooking
+            // 
+            btnBooking.BackColor = Color.Cyan;
+            btnBooking.FlatStyle = FlatStyle.Popup;
+            btnBooking.ForeColor = SystemColors.ActiveCaptionText;
+            btnBooking.Location = new Point(1035, 62);
+            btnBooking.Name = "btnBooking";
+            btnBooking.Size = new Size(158, 44);
+            btnBooking.TabIndex = 9;
+            btnBooking.Text = "Device Booking";
+            btnBooking.UseVisualStyleBackColor = false;
+            btnBooking.Click += btnBooking_Click;
+            // 
+            // DeviceList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1245, 545);
+            Controls.Add(btnBooking);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(txtSearch);
@@ -151,7 +166,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(dgvDevice);
-            Name = "Form1";
+            Name = "DeviceList";
             Text = "Device List";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDevice).EndInit();
@@ -171,5 +186,6 @@
         private Label label5;
         private Label label6;
         private ComboBox cboStatus;
+        private Button btnBooking;
     }
 }
