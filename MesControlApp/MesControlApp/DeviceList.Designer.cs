@@ -39,6 +39,7 @@
             label6 = new Label();
             cboStatus = new ComboBox();
             btnBooking = new Button();
+            btnReturnBooking = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDevice).BeginInit();
             SuspendLayout();
             // 
@@ -150,11 +151,25 @@
             btnBooking.UseVisualStyleBackColor = false;
             btnBooking.Click += btnBooking_Click;
             // 
+            // btnReturnBooking
+            // 
+            btnReturnBooking.BackColor = Color.Cyan;
+            btnReturnBooking.FlatStyle = FlatStyle.Popup;
+            btnReturnBooking.ForeColor = SystemColors.ActiveCaptionText;
+            btnReturnBooking.Location = new Point(1035, 12);
+            btnReturnBooking.Name = "btnReturnBooking";
+            btnReturnBooking.Size = new Size(158, 44);
+            btnReturnBooking.TabIndex = 10;
+            btnReturnBooking.Text = "Return Booking";
+            btnReturnBooking.UseVisualStyleBackColor = false;
+            btnReturnBooking.Click += btnReturnBooking_Click;
+            // 
             // DeviceList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1245, 545);
+            Controls.Add(btnReturnBooking);
             Controls.Add(btnBooking);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -187,5 +202,6 @@
         private Label label6;
         private ComboBox cboStatus;
         private Button btnBooking;
+        private Button btnReturnBooking;
     }
 }
