@@ -22,10 +22,10 @@ namespace MesControlApp
         {
             // Xử lý khi nhấn vào label1 (hoặc để trống nếu không cần)
         }
-        private void MyBooking_Load(object sender, EventArgs e)
-       
+        private void ReturnBooking_Load(object sender, EventArgs e)
+
         {
-            
+
             if (Session.userID == 0)
             {
                 MessageBox.Show("Bạn cần đăng nhập để xem thông tin đặt thiết bị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -35,8 +35,8 @@ namespace MesControlApp
                 return;
             }
 
-            
             LoadData(Session.userID);
+            
         }
         private void LoadData(int loggedInUserId)
         {
@@ -92,17 +92,17 @@ namespace MesControlApp
                 SqlDataAdapter da = new SqlDataAdapter(query, DatabaseConnection.connection);
                 da.SelectCommand.Parameters.AddWithValue("@UserID", loggedInUserId);
 
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                DataTable dta = new DataTable();
+                da.Fill(dta);
 
-                //// Thêm cột Action chứa nút Return
-                //dt.Columns.Add("Action", typeof(string));
-                //foreach (DataRow row in dt.Rows)
-                //{
-                //    row["Action"] = "Return";
-                //}
+                // Thêm cột Action chứa nút Return
+                dta.Columns.Add("Action", typeof(string));
+                foreach (DataRow row in dta.Rows)
+                {
+                    row["Action"] = "Return";
+                }
 
-                dgvMyBooking.DataSource = dt;
+                dgvMyBooking.DataSource = dta;
                 dgvMyBooking.Refresh();
             }
             catch (Exception ex)
@@ -118,5 +118,12 @@ namespace MesControlApp
         {
 
         }
+
+        private void dgvMyBooking_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 }

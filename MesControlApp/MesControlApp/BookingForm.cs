@@ -102,7 +102,7 @@ namespace MesControlApp
                             AND Booking_Status = 'Approved'
                             AND (StartDate <= @EndDate AND EndDate >= @StartDate)";
             SqlCommand sql = new SqlCommand(query, DatabaseConnection.connection);
-            sql.Parameters.AddWithValue("DeviceID", deviceID);
+            sql.Parameters.AddWithValue("@DeviceID", deviceID);
             sql.Parameters.AddWithValue("@EndDate", end);
             sql.Parameters.AddWithValue("@StartDate", start);
             int count = (int)sql.ExecuteScalar();
@@ -112,7 +112,45 @@ namespace MesControlApp
 
         private void btnBook_Click(object sender, EventArgs e)
         {
+            int id = int.Parse(txtUsrID.Text);
+            int? cameraID = (cboCam.SelectedValue == DBNull.Value) ? (int?)null : Convert.ToInt32(cboCam.SelectedValue);
+            int? lensID = (cboLens.SelectedValue == DBNull.Value) ? (int?)null : Convert.ToInt32(cboLens.SelectedValue);
+            int? accID = (cboAcc.SelectedValue == DBNull.Value) ? (int?)null : Convert.ToInt32(cboAcc.SelectedValue);
+            DateTime start = startDate.Value;
+            DateTime end = endDate.Value;
+            if (start > end)
+            {
+                MessageBox.Show("Start time must smaller than End time", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (start < DateTime.Now)
+            {
+                MessageBox.Show("The booking time must be after the current date.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (start == end)
+            {
+                MessageBox.Show("Need Booking more than 1 day", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cameraID.HasValue && !IsDeviceAvailableAtTime("CameraID", cameraID.Value, start, end )) 
+            {
+                MessageBox.Show("This camera already booked on that day!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (lensID.HasValue && !IsDeviceAvailableAtTime("LensID", lensID.Value, start, end))
+            {
+                MessageBox.Show("This lens already booked on that day!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (accID.HasValue && !IsDeviceAvailableAtTime("AccessoryID", accID.Value, start, end))
+            {
+                MessageBox.Show("This accessory already booked on that day!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
 
-        }
+            }
+            BookingDevice(id, cameraID, lensID,accID,start,end);
+            MessageBox.Show("Booked Success. Wait for Approve", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        } 
     }
 }
