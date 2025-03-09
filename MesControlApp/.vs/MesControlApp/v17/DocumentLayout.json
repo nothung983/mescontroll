@@ -1,94 +1,86 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Code\\MesControl\\MesControlApp\\",
+  "WorkspaceRootPath": "D:\\.Net\\test\\mescontroll\\MesControlApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\mydevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\mydevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\mydevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\mydevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\mydevice.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\mydevice.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\Code\\MesControl\\MesControlApp\\mescontrolapp\\addmydevicecs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\addmydevicecs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\bookingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\bookingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\Code\\MesControl\\MesControlApp\\mescontrolapp\\bookingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\bookingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\bookingform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\bookingform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\devicelist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\devicelist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\Code\\MesControl\\MesControlApp\\mescontrolapp\\devicelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\devicelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\devicelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\devicelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\Code\\MesControl\\MesControlApp\\mescontrolapp\\editdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\editdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\editdevice.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\editdevice.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\addmydevicecs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\addmydevicecs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\addmydevicecs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\editdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\addmydevicecs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\addmydevicecs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\mydevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\mydevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\mydevice.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\mydevice.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\.Net\\test\\mescontroll\\MesControlApp\\mescontrolapp\\mydevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\mydevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\editdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\editdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\.Net\\test\\mescontroll\\MesControlApp\\mescontrolapp\\editdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\editdevice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\returnbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\returnbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\returnbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\Code\\MesControl\\MesControlApp\\mescontrolapp\\returnbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\.Net\\test\\mescontroll\\MesControlApp\\mescontrolapp\\returnbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\returnbooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\databaseconnection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\code\\mescontrol\\mescontrolapp\\mescontrolapp\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\login.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\Code\\MesControl\\MesControlApp\\mescontrolapp\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\.Net\\test\\mescontroll\\MesControlApp\\mescontrolapp\\devicelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\devicelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\devicelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\devicelist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\.Net\\test\\mescontroll\\MesControlApp\\mescontrolapp\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\login.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\bookingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\bookingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|D:\\.Net\\test\\mescontroll\\MesControlApp\\mescontrolapp\\bookingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\bookingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|d:\\.net\\test\\mescontroll\\mescontrolapp\\mescontrolapp\\devicelist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4CA90EE-1181-428C-BDB9-A4D5484E9009}|MesControlApp\\MesControlApp.csproj|solutionrelative:mescontrolapp\\devicelist.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -98,31 +90,23 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 16,
               "Title": "Login.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Login.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Login.cs",
               "RelativeDocumentMoniker": "MesControlApp\\Login.cs",
               "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Login.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Login.cs [Design]",
+              "RelativeToolTip": "MesControlApp\\Login.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-02T06:48:47.358Z",
               "IsPinned": true
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "mydevice.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\mydevice.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\mydevice.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\mydevice.cs [Design]",
-              "RelativeToolTip": "MesControlApp\\mydevice.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T05:34:29.385Z",
-              "EditorCaption": " [Design]"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Bookmark",
@@ -138,6 +122,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
@@ -145,29 +133,12 @@
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BookingForm.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\BookingForm.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\BookingForm.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\BookingForm.cs",
-              "RelativeToolTip": "MesControlApp\\BookingForm.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAIAwwD4AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T05:19:01.089Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "AddMydevicecs.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\AddMydevicecs.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\AddMydevicecs.cs",
               "RelativeDocumentMoniker": "MesControlApp\\AddMydevicecs.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\AddMydevicecs.cs [Design]",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\AddMydevicecs.cs [Design]",
               "RelativeToolTip": "MesControlApp\\AddMydevicecs.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T18:26:24.566Z",
@@ -175,165 +146,63 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "mydevice.Designer.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\mydevice.Designer.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\mydevice.Designer.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\mydevice.Designer.cs",
-              "RelativeToolTip": "MesControlApp\\mydevice.Designer.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAswFMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T16:43:46.792Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "mydevice.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\mydevice.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\mydevice.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\mydevice.cs",
-              "RelativeToolTip": "MesControlApp\\mydevice.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAgwHgBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T16:43:29.063Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "BookingForm.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\BookingForm.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\BookingForm.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\BookingForm.cs [Design]",
-              "RelativeToolTip": "MesControlApp\\BookingForm.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-02T05:03:51.979Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BookingForm.Designer.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\BookingForm.Designer.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\BookingForm.Designer.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\BookingForm.Designer.cs",
-              "RelativeToolTip": "MesControlApp\\BookingForm.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T05:18:19.05Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Session.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Session.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\Session.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Session.cs",
-              "RelativeToolTip": "MesControlApp\\Session.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-03T23:56:51.757Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DeviceList.Designer.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DeviceList.Designer.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\DeviceList.Designer.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DeviceList.Designer.cs",
-              "RelativeToolTip": "MesControlApp\\DeviceList.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T04:14:15.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DeviceList.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DeviceList.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\DeviceList.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DeviceList.cs [Design]",
-              "RelativeToolTip": "MesControlApp\\DeviceList.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-04T00:16:14.486Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DeviceList.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DeviceList.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\DeviceList.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DeviceList.cs",
-              "RelativeToolTip": "MesControlApp\\DeviceList.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAtwJAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T06:25:41.461Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "EditDevice.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\EditDevice.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\EditDevice.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\EditDevice.cs [Design]",
-              "RelativeToolTip": "MesControlApp\\EditDevice.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T16:53:16.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "EditDevice.Designer.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\EditDevice.Designer.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\EditDevice.Designer.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\EditDevice.Designer.cs",
-              "RelativeToolTip": "MesControlApp\\EditDevice.Designer.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-09T05:03:38.749Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
               "Title": "AddMydevicecs.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\AddMydevicecs.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\AddMydevicecs.cs",
               "RelativeDocumentMoniker": "MesControlApp\\AddMydevicecs.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\AddMydevicecs.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\AddMydevicecs.cs",
               "RelativeToolTip": "MesControlApp\\AddMydevicecs.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAtwIsAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAtwIsAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T18:22:37.504Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "DatabaseConnection.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DatabaseConnection.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\DatabaseConnection.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DatabaseConnection.cs",
-              "RelativeToolTip": "MesControlApp\\DatabaseConnection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAACGAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "EditDevice.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\EditDevice.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\EditDevice.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\EditDevice.cs",
+              "RelativeToolTip": "MesControlApp\\EditDevice.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T07:30:23.577Z"
+              "WhenOpened": "2025-03-08T16:53:20.341Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 3,
+              "Title": "mydevice.Designer.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\mydevice.Designer.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\mydevice.Designer.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\mydevice.Designer.cs",
+              "RelativeToolTip": "MesControlApp\\mydevice.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T16:43:46.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "mydevice.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\mydevice.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\mydevice.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\mydevice.cs",
+              "RelativeToolTip": "MesControlApp\\mydevice.cs",
+              "ViewState": "AgIAAF8BAAAAAAAAAAAEwGwBAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T16:43:29.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ReturnBooking.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\ReturnBooking.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\ReturnBooking.cs",
               "RelativeDocumentMoniker": "MesControlApp\\ReturnBooking.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\ReturnBooking.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\ReturnBooking.cs",
               "RelativeToolTip": "MesControlApp\\ReturnBooking.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAowBQAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -342,23 +211,61 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "EditDevice.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\EditDevice.cs",
-              "RelativeDocumentMoniker": "MesControlApp\\EditDevice.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\EditDevice.cs",
-              "RelativeToolTip": "MesControlApp\\EditDevice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "DatabaseConnection.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\DatabaseConnection.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\DatabaseConnection.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\DatabaseConnection.cs",
+              "RelativeToolTip": "MesControlApp\\DatabaseConnection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAACGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-08T16:53:20.341Z"
+              "WhenOpened": "2025-03-01T07:30:23.577Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 15,
+              "Title": "DeviceList.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\DeviceList.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\DeviceList.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\DeviceList.cs",
+              "RelativeToolTip": "MesControlApp\\DeviceList.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAmwJAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T06:25:41.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "BookingForm.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\BookingForm.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\BookingForm.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\BookingForm.cs",
+              "RelativeToolTip": "MesControlApp\\BookingForm.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwGcAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T05:19:01.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "DeviceList.Designer.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\DeviceList.Designer.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\DeviceList.Designer.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\DeviceList.Designer.cs",
+              "RelativeToolTip": "MesControlApp\\DeviceList.Designer.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T04:14:15.754Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Login.Designer.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Login.Designer.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Login.Designer.cs",
               "RelativeDocumentMoniker": "MesControlApp\\Login.Designer.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Login.Designer.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Login.Designer.cs",
               "RelativeToolTip": "MesControlApp\\Login.Designer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -366,11 +273,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 10,
               "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Program.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Program.cs",
               "RelativeDocumentMoniker": "MesControlApp\\Program.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Program.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Program.cs",
               "RelativeToolTip": "MesControlApp\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -378,11 +285,23 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 11,
+              "Title": "Session.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Session.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\Session.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Session.cs",
+              "RelativeToolTip": "MesControlApp\\Session.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-03T23:56:51.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Login.cs",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Login.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Login.cs",
               "RelativeDocumentMoniker": "MesControlApp\\Login.cs",
-              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\Login.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\Login.cs",
               "RelativeToolTip": "MesControlApp\\Login.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAowEMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -390,14 +309,58 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 6,
+              "Title": "EditDevice.cs [Design]",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\EditDevice.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\EditDevice.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\EditDevice.cs [Design]",
+              "RelativeToolTip": "MesControlApp\\EditDevice.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T16:53:16.375Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "mydevice.cs [Design]",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\mydevice.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\mydevice.cs",
+              "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\mydevice.cs [Design]*",
+              "RelativeToolTip": "MesControlApp\\mydevice.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T16:43:24.43Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DeviceList.cs [Design]",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\DeviceList.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\DeviceList.cs",
+              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\DeviceList.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\Code\\MesControl\\MesControlApp\\MesControlApp\\DeviceList.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-04T00:16:14.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ReturnBooking.cs [Design]",
-              "DocumentMoniker": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\ReturnBooking.cs",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\ReturnBooking.cs",
               "RelativeDocumentMoniker": "MesControlApp\\ReturnBooking.cs",
               "ToolTip": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\ReturnBooking.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\ReturnBooking.cs [Design]",
+              "RelativeToolTip": "MesControlApp\\ReturnBooking.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-08T09:14:46.379Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BookingForm.cs [Design]",
+              "DocumentMoniker": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\BookingForm.cs",
+              "RelativeDocumentMoniker": "MesControlApp\\BookingForm.cs",
+              "ToolTip": "D:\\Code\\MesControl\\MesControlApp\\MesControlApp\\BookingForm.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\Code\\MesControl\\MesControlApp\\MesControlApp\\BookingForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T05:03:51.979Z"
             }
           ]
         }
