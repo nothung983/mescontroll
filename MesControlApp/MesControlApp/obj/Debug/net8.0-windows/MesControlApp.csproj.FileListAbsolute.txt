@@ -110,3 +110,6 @@ D:\.Net\test\mescontroll\MesControlApp\MesControlApp\obj\Debug\net8.0-windows\re
 D:\.Net\test\mescontroll\MesControlApp\MesControlApp\obj\Debug\net8.0-windows\MesControlApp.AddMydevicecs.resources
 D:\.Net\test\mescontroll\MesControlApp\MesControlApp\obj\Debug\net8.0-windows\MesControlApp.EditDevice.resources
 D:\.Net\test\mescontroll\MesControlApp\MesControlApp\obj\Debug\net8.0-windows\MesControlApp.mydevice.resources
+D:\Code\MesControl\MesControlApp\MesControlApp\obj\Debug\net8.0-windows\MesControlApp.AddMydevicecs.resources
+D:\Code\MesControl\MesControlApp\MesControlApp\obj\Debug\net8.0-windows\MesControlApp.EditDevice.resources
+D:\Code\MesControl\MesControlApp\MesControlApp\obj\Debug\net8.0-windows\MesControlApp.mydevice.resources

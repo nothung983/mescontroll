@@ -371,5 +371,10 @@ namespace MesControlApp
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void mydevice_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
