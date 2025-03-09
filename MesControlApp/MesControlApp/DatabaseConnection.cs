@@ -17,7 +17,7 @@ namespace MesControlApp
         {
             try
             {
-                connection = new SqlConnection("Data Source=DESKTOP-HT3APFQ\\SQLEXPRESS;Initial Catalog=mediaz_db;User ID=sa;Password=123456;");
+                connection = new SqlConnection("Data Source=KIMTRONG\\MSSQLSERVER01;Initial Catalog=mediaz_db;Integrated Security=True");
                 connection.Open();
                 
             }
