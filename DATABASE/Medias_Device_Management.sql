@@ -143,3 +143,5 @@ INSERT INTO Bookings (UserID, CameraID, LensID, AccessoryID, StartDate, EndDate,
 INSERT INTO Requests (UserID, DeviceType, Request_content, Booking_Status, AdminApprovalID) VALUES
 (1, 'Camera', 'Requesting a Canon EOS R5 for a school event shoot.', 'Pending', NULL),
 (2, 'Lens', 'Need a Sony 85mm lens for portrait photography.', 'Approved', 3);
+
+ALter table users Add User_Image NVARCHAR(500) NULL;
