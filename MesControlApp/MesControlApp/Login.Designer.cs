@@ -42,12 +42,13 @@
             // Logintxt
             // 
             Logintxt.AutoSize = true;
-            Logintxt.Font = new Font("Microsoft Sans Serif", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Logintxt.Location = new Point(499, 94);
+            Logintxt.Font = new Font("Lexend Medium", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Logintxt.Location = new Point(485, 74);
             Logintxt.Name = "Logintxt";
-            Logintxt.Size = new Size(85, 32);
+            Logintxt.Size = new Size(121, 54);
             Logintxt.TabIndex = 0;
             Logintxt.Text = "Login";
+            Logintxt.Click += Logintxt_Click;
             // 
             // pictureBox1
             // 
@@ -93,10 +94,10 @@
             // PhoneNumber
             // 
             PhoneNumber.AutoSize = true;
-            PhoneNumber.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            PhoneNumber.Font = new Font("Lexend", 12F);
             PhoneNumber.Location = new Point(409, 149);
             PhoneNumber.Name = "PhoneNumber";
-            PhoneNumber.Size = new Size(130, 22);
+            PhoneNumber.Size = new Size(160, 32);
             PhoneNumber.TabIndex = 5;
             PhoneNumber.Text = "Phone Number";
             PhoneNumber.Click += label2_Click;
@@ -104,10 +105,10 @@
             // Password
             // 
             Password.AutoSize = true;
-            Password.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Password.Font = new Font("Lexend", 12F);
             Password.Location = new Point(409, 238);
             Password.Name = "Password";
-            Password.Size = new Size(89, 22);
+            Password.Size = new Size(109, 32);
             Password.TabIndex = 6;
             Password.Text = "Password";
             // 
