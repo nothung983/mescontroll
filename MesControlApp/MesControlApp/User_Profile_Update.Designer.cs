@@ -44,7 +44,12 @@
             myDevice_menu = new ToolStripMenuItem();
             mybooking_menu = new ToolStripMenuItem();
             devices_menu = new ToolStripMenuItem();
+            aToolStripMenuItem = new ToolStripMenuItem();
             booking_menu = new ToolStripMenuItem();
+            pendingBooking_menu = new ToolStripMenuItem();
+            allBooking_menu = new ToolStripMenuItem();
+            usersToolStripMenuItem = new ToolStripMenuItem();
+            userLists_menu = new ToolStripMenuItem();
             Account_menu = new ToolStripMenuItem();
             myAccount_menu = new ToolStripMenuItem();
             logOut_menu = new ToolStripMenuItem();
@@ -85,6 +90,7 @@
             ChangeInfo.TabIndex = 16;
             ChangeInfo.Text = "Save Changes";
             ChangeInfo.UseVisualStyleBackColor = false;
+            ChangeInfo.Click += ChangeInfo_Click;
             // 
             // label4
             // 
@@ -157,16 +163,17 @@
             user_imageBtn.TabIndex = 13;
             user_imageBtn.Text = "Upload New Image";
             user_imageBtn.UseVisualStyleBackColor = true;
+            user_imageBtn.Click += user_imageBtn_Click;
             // 
             // menuStrip1
             // 
             menuStrip1.Font = new Font("Lexend Deca", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { home_menu, devices_menu, booking_menu, Account_menu });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { home_menu, devices_menu, booking_menu, usersToolStripMenuItem, Account_menu });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 32);
-            menuStrip1.TabIndex = 22;
+            menuStrip1.TabIndex = 24;
             menuStrip1.Text = "menuStrip1";
             // 
             // home_menu
@@ -190,15 +197,48 @@
             // 
             // devices_menu
             // 
+            devices_menu.DropDownItems.AddRange(new ToolStripItem[] { aToolStripMenuItem });
             devices_menu.Name = "devices_menu";
             devices_menu.Size = new Size(81, 28);
             devices_menu.Text = "Devices";
             // 
+            // aToolStripMenuItem
+            // 
+            aToolStripMenuItem.Name = "aToolStripMenuItem";
+            aToolStripMenuItem.Size = new Size(173, 28);
+            aToolStripMenuItem.Text = "All Devices";
+            // 
             // booking_menu
             // 
+            booking_menu.DropDownItems.AddRange(new ToolStripItem[] { pendingBooking_menu, allBooking_menu });
             booking_menu.Name = "booking_menu";
             booking_menu.Size = new Size(84, 28);
             booking_menu.Text = "Booking";
+            // 
+            // pendingBooking_menu
+            // 
+            pendingBooking_menu.Name = "pendingBooking_menu";
+            pendingBooking_menu.Size = new Size(219, 28);
+            pendingBooking_menu.Text = "Pending Booking";
+            // 
+            // allBooking_menu
+            // 
+            allBooking_menu.Name = "allBooking_menu";
+            allBooking_menu.Size = new Size(219, 28);
+            allBooking_menu.Text = "All Booking";
+            // 
+            // usersToolStripMenuItem
+            // 
+            usersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { userLists_menu });
+            usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            usersToolStripMenuItem.Size = new Size(64, 28);
+            usersToolStripMenuItem.Text = "Users";
+            // 
+            // userLists_menu
+            // 
+            userLists_menu.Name = "userLists_menu";
+            userLists_menu.Size = new Size(156, 28);
+            userLists_menu.Text = "All Users";
             // 
             // Account_menu
             // 
@@ -261,7 +301,12 @@
         private ToolStripMenuItem myDevice_menu;
         private ToolStripMenuItem mybooking_menu;
         private ToolStripMenuItem devices_menu;
+        private ToolStripMenuItem aToolStripMenuItem;
         private ToolStripMenuItem booking_menu;
+        private ToolStripMenuItem pendingBooking_menu;
+        private ToolStripMenuItem allBooking_menu;
+        private ToolStripMenuItem usersToolStripMenuItem;
+        private ToolStripMenuItem userLists_menu;
         private ToolStripMenuItem Account_menu;
         private ToolStripMenuItem myAccount_menu;
         private ToolStripMenuItem logOut_menu;

@@ -29,27 +29,32 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
+            Username = new Label();
+            User_mail = new Label();
+            user_phone = new Label();
             ChangeInfo = new Button();
-            textBox1 = new TextBox();
+            usr_name_txt = new TextBox();
             usr_email_txt = new TextBox();
-            textBox3 = new TextBox();
+            user_phone_num_txt = new TextBox();
             ChangePass = new Button();
             groupBox1 = new GroupBox();
-            pictureBox1 = new PictureBox();
+            usr_image_box = new PictureBox();
             menuStrip1 = new MenuStrip();
             home_menu = new ToolStripMenuItem();
             myDevice_menu = new ToolStripMenuItem();
             mybooking_menu = new ToolStripMenuItem();
             devices_menu = new ToolStripMenuItem();
+            aToolStripMenuItem = new ToolStripMenuItem();
             booking_menu = new ToolStripMenuItem();
+            pendingBooking_menu = new ToolStripMenuItem();
+            allBooking_menu = new ToolStripMenuItem();
+            usersToolStripMenuItem = new ToolStripMenuItem();
+            userLists_menu = new ToolStripMenuItem();
             Account_menu = new ToolStripMenuItem();
             myAccount_menu = new ToolStripMenuItem();
             logOut_menu = new ToolStripMenuItem();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)usr_image_box).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,35 +68,35 @@
             label1.TabIndex = 0;
             label1.Text = "User Profile";
             // 
-            // label2
+            // Username
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            label2.Location = new Point(357, 110);
-            label2.Name = "label2";
-            label2.Size = new Size(98, 25);
-            label2.TabIndex = 3;
-            label2.Text = "Username";
+            Username.AutoSize = true;
+            Username.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            Username.Location = new Point(357, 110);
+            Username.Name = "Username";
+            Username.Size = new Size(98, 25);
+            Username.TabIndex = 3;
+            Username.Text = "Username";
             // 
-            // label3
+            // User_mail
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            label3.Location = new Point(357, 181);
-            label3.Name = "label3";
-            label3.Size = new Size(102, 25);
-            label3.TabIndex = 4;
-            label3.Text = "User Email";
+            User_mail.AutoSize = true;
+            User_mail.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            User_mail.Location = new Point(357, 181);
+            User_mail.Name = "User_mail";
+            User_mail.Size = new Size(102, 25);
+            User_mail.TabIndex = 4;
+            User_mail.Text = "User Email";
             // 
-            // label4
+            // user_phone
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            label4.Location = new Point(357, 260);
-            label4.Name = "label4";
-            label4.Size = new Size(185, 25);
-            label4.TabIndex = 5;
-            label4.Text = "User Phone Number";
+            user_phone.AutoSize = true;
+            user_phone.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
+            user_phone.Location = new Point(357, 260);
+            user_phone.Name = "user_phone";
+            user_phone.Size = new Size(185, 25);
+            user_phone.TabIndex = 5;
+            user_phone.Text = "User Phone Number";
             // 
             // ChangeInfo
             // 
@@ -101,14 +106,15 @@
             ChangeInfo.TabIndex = 6;
             ChangeInfo.Text = "Change Information";
             ChangeInfo.UseVisualStyleBackColor = true;
+            ChangeInfo.Click += ChangeInfo_Click;
             // 
-            // textBox1
+            // usr_name_txt
             // 
-            textBox1.Location = new Point(357, 138);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(328, 27);
-            textBox1.TabIndex = 7;
+            usr_name_txt.Location = new Point(357, 138);
+            usr_name_txt.Name = "usr_name_txt";
+            usr_name_txt.ReadOnly = true;
+            usr_name_txt.Size = new Size(328, 27);
+            usr_name_txt.TabIndex = 7;
             // 
             // usr_email_txt
             // 
@@ -118,13 +124,13 @@
             usr_email_txt.Size = new Size(328, 27);
             usr_email_txt.TabIndex = 8;
             // 
-            // textBox3
+            // user_phone_num_txt
             // 
-            textBox3.Location = new Point(357, 299);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(328, 27);
-            textBox3.TabIndex = 9;
+            user_phone_num_txt.Location = new Point(357, 299);
+            user_phone_num_txt.Name = "user_phone_num_txt";
+            user_phone_num_txt.ReadOnly = true;
+            user_phone_num_txt.Size = new Size(328, 27);
+            user_phone_num_txt.TabIndex = 9;
             // 
             // ChangePass
             // 
@@ -134,10 +140,11 @@
             ChangePass.TabIndex = 10;
             ChangePass.Text = "Change Password";
             ChangePass.UseVisualStyleBackColor = true;
+            ChangePass.Click += ChangePass_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(pictureBox1);
+            groupBox1.Controls.Add(usr_image_box);
             groupBox1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(42, 53);
             groupBox1.Name = "groupBox1";
@@ -146,24 +153,24 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "User Image";
             // 
-            // pictureBox1
+            // usr_image_box
             // 
-            pictureBox1.Location = new Point(21, 46);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(213, 261);
-            pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox1.TabIndex = 12;
-            pictureBox1.TabStop = false;
+            usr_image_box.Location = new Point(21, 46);
+            usr_image_box.Name = "usr_image_box";
+            usr_image_box.Size = new Size(213, 261);
+            usr_image_box.SizeMode = PictureBoxSizeMode.CenterImage;
+            usr_image_box.TabIndex = 12;
+            usr_image_box.TabStop = false;
             // 
             // menuStrip1
             // 
             menuStrip1.Font = new Font("Lexend Deca", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { home_menu, devices_menu, booking_menu, Account_menu });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { home_menu, devices_menu, booking_menu, usersToolStripMenuItem, Account_menu });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 32);
-            menuStrip1.TabIndex = 23;
+            menuStrip1.TabIndex = 24;
             menuStrip1.Text = "menuStrip1";
             // 
             // home_menu
@@ -187,15 +194,48 @@
             // 
             // devices_menu
             // 
+            devices_menu.DropDownItems.AddRange(new ToolStripItem[] { aToolStripMenuItem });
             devices_menu.Name = "devices_menu";
             devices_menu.Size = new Size(81, 28);
             devices_menu.Text = "Devices";
             // 
+            // aToolStripMenuItem
+            // 
+            aToolStripMenuItem.Name = "aToolStripMenuItem";
+            aToolStripMenuItem.Size = new Size(173, 28);
+            aToolStripMenuItem.Text = "All Devices";
+            // 
             // booking_menu
             // 
+            booking_menu.DropDownItems.AddRange(new ToolStripItem[] { pendingBooking_menu, allBooking_menu });
             booking_menu.Name = "booking_menu";
             booking_menu.Size = new Size(84, 28);
             booking_menu.Text = "Booking";
+            // 
+            // pendingBooking_menu
+            // 
+            pendingBooking_menu.Name = "pendingBooking_menu";
+            pendingBooking_menu.Size = new Size(219, 28);
+            pendingBooking_menu.Text = "Pending Booking";
+            // 
+            // allBooking_menu
+            // 
+            allBooking_menu.Name = "allBooking_menu";
+            allBooking_menu.Size = new Size(219, 28);
+            allBooking_menu.Text = "All Booking";
+            // 
+            // usersToolStripMenuItem
+            // 
+            usersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { userLists_menu });
+            usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            usersToolStripMenuItem.Size = new Size(64, 28);
+            usersToolStripMenuItem.Text = "Users";
+            // 
+            // userLists_menu
+            // 
+            userLists_menu.Name = "userLists_menu";
+            userLists_menu.Size = new Size(156, 28);
+            userLists_menu.Text = "All Users";
             // 
             // Account_menu
             // 
@@ -224,18 +264,18 @@
             Controls.Add(menuStrip1);
             Controls.Add(groupBox1);
             Controls.Add(ChangePass);
-            Controls.Add(textBox3);
+            Controls.Add(user_phone_num_txt);
             Controls.Add(usr_email_txt);
-            Controls.Add(textBox1);
+            Controls.Add(usr_name_txt);
             Controls.Add(ChangeInfo);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
+            Controls.Add(user_phone);
+            Controls.Add(User_mail);
+            Controls.Add(Username);
             Controls.Add(label1);
             Name = "User_Profile";
             Text = "User_Profile";
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)usr_image_box).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -245,22 +285,27 @@
         #endregion
 
         private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
+        private Label Username;
+        private Label User_mail;
+        private Label user_phone;
         private Button ChangeInfo;
-        private TextBox textBox1;
+        private TextBox usr_name_txt;
         private TextBox usr_email_txt;
-        private TextBox textBox3;
+        private TextBox user_phone_num_txt;
         private Button ChangePass;
         private GroupBox groupBox1;
-        private PictureBox pictureBox1;
+        private PictureBox usr_image_box;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem home_menu;
         private ToolStripMenuItem myDevice_menu;
         private ToolStripMenuItem mybooking_menu;
         private ToolStripMenuItem devices_menu;
+        private ToolStripMenuItem aToolStripMenuItem;
         private ToolStripMenuItem booking_menu;
+        private ToolStripMenuItem pendingBooking_menu;
+        private ToolStripMenuItem allBooking_menu;
+        private ToolStripMenuItem usersToolStripMenuItem;
+        private ToolStripMenuItem userLists_menu;
         private ToolStripMenuItem Account_menu;
         private ToolStripMenuItem myAccount_menu;
         private ToolStripMenuItem logOut_menu;
