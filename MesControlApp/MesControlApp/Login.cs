@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using MesControlApp;
 
 namespace Media_Device_Management
@@ -49,29 +49,39 @@ namespace Media_Device_Management
             {
                 DatabaseConnection.Connect();
                 string query = "SELECT UserID, User_Role, User_fullname FROM Users WHERE User_Phone_Num = @PhoneNumber AND User_Pass = @Password";
-                SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
-                cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
-                cmd.Parameters.AddWithValue("@Password", password);
 
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
+                using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection))
                 {
-                    Session.userID = reader.GetInt32(0);
-                    Session.role = reader.GetString(1);
-                    Session.name = reader.GetString(2);
-                    this.Hide();
-                    //DeviceList deviceList = new DeviceList();
-                    //deviceList.Show();
-                    mydevice mydevice = new mydevice();
-                    mydevice.Show();
-                    
+                    cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
+                    cmd.Parameters.AddWithValue("@Password", password);
 
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            Session.userID = reader.GetInt32(0);
+                            Session.role = reader.GetString(1);
+                            Session.name = reader.GetString(2);
+
+                            if (Session.role == "Admin")
+                            {
+                                this.Hide();
+                                Admin_Dashboard admin_Dashboard = new Admin_Dashboard();
+                                admin_Dashboard.Show();
+                            }
+                            else
+                            {
+                                this.Hide();
+                                Main_dashboard main_Dashboard = new Main_dashboard();
+                                main_Dashboard.Show();
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Invalid phone number or password.");
+                        }
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Invalid phone number or password.");
-                }
-                reader.Close();
             }
             catch (Exception ex)
             {
@@ -84,6 +94,11 @@ namespace Media_Device_Management
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Logintxt_Click(object sender, EventArgs e)
         {
 
         }

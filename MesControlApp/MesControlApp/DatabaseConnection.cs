@@ -1,44 +1,57 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
 using System.Data;
+using Microsoft.Data.SqlClient;
 
 namespace MesControlApp
 {
     internal class DatabaseConnection
     {
-
         public static SqlConnection connection;
 
         public static bool Connect()
         {
             try
             {
-                connection = new SqlConnection("Data Source=KIMTRONG\\MSSQLSERVER01;Initial Catalog=mediaz_db;Integrated Security=True");
-                connection.Open();
-                
+                if (connection == null)
+                {
+                    string connectionString = "Data Source=DANGHUNG_LAPTOP\\MSSQLSERVER2022;Initial Catalog=mediaz_db;Integrated Security=True;MultipleActiveResultSets=True;TrustServerCertificate=True";
+                    connection = new SqlConnection(connectionString);
+                }
+
+                if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                return true;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
+                Console.WriteLine("Connection error: " + ex.Message);
                 return false;
             }
-            return true;
         }
 
         public static bool CloseConnect()
         {
             try
             {
-                connection.Close();
+                if (connection != null && connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+                return true;
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Error closing connection: " + ex.Message);
                 return false;
             }
-            return true;
+        }
+
+        public static SqlConnection GetConnection()
+        {
+            return connection;
         }
     }
 }
