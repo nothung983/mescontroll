@@ -50,7 +50,7 @@ namespace Media_Device_Management
                 DatabaseConnection.Connect();
                 string query = "SELECT UserID, User_Role, User_fullname FROM Users WHERE User_Phone_Num = @PhoneNumber AND User_Pass = @Password";
 
-                using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection))
+                using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection()))
                 {
                     cmd.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                     cmd.Parameters.AddWithValue("@Password", password);
