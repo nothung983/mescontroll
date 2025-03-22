@@ -163,6 +163,7 @@
             dataGridViewUsers.RowHeadersWidth = 51;
             dataGridViewUsers.Size = new Size(1054, 409);
             dataGridViewUsers.TabIndex = 24;
+            dataGridViewUsers.CellClick += dataGridViewUsers_CellClick;
             // 
             // label1
             // 

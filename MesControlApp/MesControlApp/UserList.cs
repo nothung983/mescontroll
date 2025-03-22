@@ -27,17 +27,36 @@ namespace MesControlApp
                         conn.Open();
                     }
 
-                    string query = "SELECT UserID, User_Fullname, User_Email, User_Image FROM Users";
+                    string query = "SELECT UserID, User_Fullname, User_Phone_Num, User_Email, User_Role FROM Users";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                         {
                             DataTable dt = new DataTable();
                             adapter.Fill(dt);
-                            dataGridViewUsers.DataSource = dt; // Ensure DataGridView is named dataGridViewUsers
+                            dataGridViewUsers.DataSource = dt;
 
-                            // Hide User_Image column in DataGridView if needed
-                            dataGridViewUsers.Columns["User_Image"].Visible = true;
+                            // Add View Details button column
+                            if (!dataGridViewUsers.Columns.Contains("ViewDetails"))
+                            {
+                                DataGridViewButtonColumn viewButton = new DataGridViewButtonColumn();
+                                viewButton.Name = "ViewDetails";
+                                viewButton.HeaderText = "View";
+                                viewButton.Text = "View";
+                                viewButton.UseColumnTextForButtonValue = true;
+                                dataGridViewUsers.Columns.Add(viewButton);
+                            }
+
+                            // Add Delete button column
+                            if (!dataGridViewUsers.Columns.Contains("DeleteUser"))
+                            {
+                                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn();
+                                deleteButton.Name = "DeleteUser";
+                                deleteButton.HeaderText = "Delete";
+                                deleteButton.Text = "Delete";
+                                deleteButton.UseColumnTextForButtonValue = true;
+                                dataGridViewUsers.Columns.Add(deleteButton);
+                            }
                         }
                     }
                 }
@@ -47,6 +66,8 @@ namespace MesControlApp
                 MessageBox.Show("Error loading users: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
@@ -119,110 +140,112 @@ namespace MesControlApp
 
         private void dataGridViewUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) // Ensure a valid row is selected
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                DataGridViewRow row = dataGridViewUsers.Rows[e.RowIndex];
+                // Get the User ID from the selected row
+                int userId = Convert.ToInt32(dataGridViewUsers.Rows[e.RowIndex].Cells["UserID"].Value);
 
-                string username = row.Cells["User_Fullname"].Value.ToString();
-                string email = row.Cells["User_Email"].Value.ToString();
-                string phone = GetUserPhone(row.Cells["UserID"].Value);
-                string password = GetUserPassword(row.Cells["UserID"].Value);
-                string role = GetUserRole(row.Cells["UserID"].Value);
-
-                // Load user image
-                Image userImage = null;
-                if (row.Cells["User_Image"].Value != DBNull.Value && row.Cells["User_Image"].Value != null)
+                // Check if View Details button was clicked
+                if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "ViewDetails")
                 {
-                    string imagePath = row.Cells["User_Image"].Value.ToString();
-                    if (File.Exists(imagePath))
-                    {
-                        userImage = Image.FromFile(imagePath);
-                    }
+                    // Open User Detail form
+                    User_Detail_for_Admin userDetailForm = new User_Detail_for_Admin(userId);
+                    userDetailForm.Show();
+                    userDetailForm.Show();
                 }
-
-                // Open User Detail form with selected user data
-                User_Detail_for_Admin userDetailForm = new User_Detail_for_Admin(username, email, phone, password, role, userImage);
-                userDetailForm.Show();
-            }
-        }
-
-        private string GetUserPhone(object userId)
-        {
-            string phone = "";
-            try
-            {
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
+                // Check if Delete button was clicked
+                else if (dataGridViewUsers.Columns[e.ColumnIndex].Name == "DeleteUser")
                 {
-                    string query = "SELECT User_Phone_Num FROM Users WHERE UserID = @UserId";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    DialogResult result = MessageBox.Show(
+                        "Are you sure you want to delete this user?", "Confirm Delete",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if (result == DialogResult.Yes)
                     {
-                        cmd.Parameters.AddWithValue("@UserId", userId);
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
-                        {
-                            phone = result.ToString();
-                        }
+                        DeleteUser(userId);
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error retrieving phone number: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return phone;
         }
 
-        private string GetUserPassword(object userId)
-        {
-            string password = "";
-            try
-            {
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    string query = "SELECT User_Pass FROM Users WHERE UserID = @UserId";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@UserId", userId);
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
-                        {
-                            password = result.ToString();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error retrieving password: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return password;
-        }
 
-        private string GetUserRole(object userId)
-        {
-            string role = "User";
-            try
-            {
-                using (SqlConnection conn = DatabaseConnection.GetConnection())
-                {
-                    string query = "SELECT User_Role FROM Users WHERE UserID = @UserId";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@UserId", userId);
-                        object result = cmd.ExecuteScalar();
-                        if (result != null)
-                        {
-                            role = result.ToString();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error retrieving role: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return role;
-        }
+        //private string GetUserPhone(object userId)
+        //{
+        //    string phone = "";
+        //    try
+        //    {
+        //        using (SqlConnection conn = DatabaseConnection.GetConnection())
+        //        {
+        //            string query = "SELECT User_Phone_Num FROM Users WHERE UserID = @UserId";
+        //            using (SqlCommand cmd = new SqlCommand(query, conn))
+        //            {
+        //                cmd.Parameters.AddWithValue("@UserId", userId);
+        //                object result = cmd.ExecuteScalar();
+        //                if (result != null)
+        //                {
+        //                    phone = result.ToString();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error retrieving phone number: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    return phone;
+        //}
+
+        //private string GetUserPassword(object userId)
+        //{
+        //    string password = "";
+        //    try
+        //    {
+        //        using (SqlConnection conn = DatabaseConnection.GetConnection())
+        //        {
+        //            string query = "SELECT User_Pass FROM Users WHERE UserID = @UserId";
+        //            using (SqlCommand cmd = new SqlCommand(query, conn))
+        //            {
+        //                cmd.Parameters.AddWithValue("@UserId", userId);
+        //                object result = cmd.ExecuteScalar();
+        //                if (result != null)
+        //                {
+        //                    password = result.ToString();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error retrieving password: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    return password;
+        //}
+
+        //private string GetUserRole(object userId)
+        //{
+        //    string role = "User";
+        //    try
+        //    {
+        //        using (SqlConnection conn = DatabaseConnection.GetConnection())
+        //        {
+        //            string query = "SELECT User_Role FROM Users WHERE UserID = @UserId";
+        //            using (SqlCommand cmd = new SqlCommand(query, conn))
+        //            {
+        //                cmd.Parameters.AddWithValue("@UserId", userId);
+        //                object result = cmd.ExecuteScalar();
+        //                if (result != null)
+        //                {
+        //                    role = result.ToString();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error retrieving role: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    return role;
+        //}
 
         private void new_user_Btn_Click(object sender, EventArgs e)
         {
