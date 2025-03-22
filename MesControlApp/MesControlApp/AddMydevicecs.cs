@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
 using Media_Device_Management;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace MesControlApp
 {
@@ -249,7 +249,7 @@ namespace MesControlApp
             {
                 DatabaseConnection.Connect();
                 string query = "SELECT BrandID, Brand_Name FROM Brands";
-                using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection());
                 using SqlDataReader reader = cmd.ExecuteReader();
 
                 comboBrand.Items.Clear();
@@ -269,6 +269,17 @@ namespace MesControlApp
             {
                 DatabaseConnection.CloseConnect();
             }
+        }
+
+        private void InitializeComponent()
+        {
+            SuspendLayout();
+            // 
+            // AddMydevicecs
+            // 
+            ClientSize = new Size(282, 253);
+            Name = "AddMydevicecs";
+            ResumeLayout(false);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -309,7 +320,7 @@ namespace MesControlApp
                     string query = @"
                         INSERT INTO Cameras (Camera_Name, Camera_Brand, Camera_SensorType, OwnerID, Booking_Status)
                         VALUES (@CameraName, @CameraBrand, @SensorType, @OwnerID, 'Available')";
-                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection());
                     cmd.Parameters.AddWithValue("@CameraName", deviceName);
                     cmd.Parameters.AddWithValue("@CameraBrand", brandId);
                     cmd.Parameters.AddWithValue("@SensorType", sensorType);
@@ -334,7 +345,7 @@ namespace MesControlApp
                     string query = @"
                         INSERT INTO Lenses (Lenses_Name, Lenses_Brand, Lenses_FocalLengthMin, Lenses_FocalLengthMax, Lenses_Aperture, OwnerID, Booking_Status)
                         VALUES (@LensesName, @LensesBrand, @FocalLengthMin, @FocalLengthMax, @Aperture, @OwnerID, 'Available')";
-                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection());
                     cmd.Parameters.AddWithValue("@LensesName", deviceName);
                     cmd.Parameters.AddWithValue("@LensesBrand", brandId);
                     cmd.Parameters.AddWithValue("@FocalLengthMin", focalLengthMin);
@@ -354,7 +365,7 @@ namespace MesControlApp
                     string query = @"
                         INSERT INTO Accessories (Accessory_Name, Accessory_Brand, Accessory_Type, OwnerID, Booking_Status)
                         VALUES (@AccessoryName, @AccessoryBrand, @AccessoryType, @OwnerID, 'Available')";
-                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection());
                     cmd.Parameters.AddWithValue("@AccessoryName", deviceName);
                     cmd.Parameters.AddWithValue("@AccessoryBrand", brandId);
                     cmd.Parameters.AddWithValue("@AccessoryType", accessoryType);
