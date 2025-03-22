@@ -42,10 +42,10 @@
             Account_menu = new ToolStripMenuItem();
             myAccount_menu = new ToolStripMenuItem();
             logOut_menu = new ToolStripMenuItem();
-            dataGridView1 = new DataGridView();
+            myBookingGridView = new DataGridView();
             my_book = new Label();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)myBookingGridView).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -65,18 +65,21 @@
             home_menu.Name = "home_menu";
             home_menu.Size = new Size(67, 28);
             home_menu.Text = "Home";
+            home_menu.Click += home_menu_Click;
             // 
             // myDevice_menu
             // 
             myDevice_menu.Name = "myDevice_menu";
             myDevice_menu.Size = new Size(180, 28);
             myDevice_menu.Text = "My Devices";
+            myDevice_menu.Click += myDevice_menu_Click;
             // 
             // mybooking_menu
             // 
             mybooking_menu.Name = "mybooking_menu";
             mybooking_menu.Size = new Size(180, 28);
             mybooking_menu.Text = "My Booking";
+            mybooking_menu.Click += mybooking_menu_Click;
             // 
             // devices_menu
             // 
@@ -90,6 +93,7 @@
             allDevices_MenuItem.Name = "allDevices_MenuItem";
             allDevices_MenuItem.Size = new Size(173, 28);
             allDevices_MenuItem.Text = "All Devices";
+            allDevices_MenuItem.Click += allDevices_MenuItem_Click;
             // 
             // booking_menu
             // 
@@ -103,12 +107,14 @@
             pendingBooking_menu.Name = "pendingBooking_menu";
             pendingBooking_menu.Size = new Size(219, 28);
             pendingBooking_menu.Text = "Pending Booking";
+            pendingBooking_menu.Click += pendingBooking_menu_Click;
             // 
             // allBooking_menu
             // 
             allBooking_menu.Name = "allBooking_menu";
             allBooking_menu.Size = new Size(219, 28);
             allBooking_menu.Text = "All Booking";
+            allBooking_menu.Click += allBooking_menu_Click;
             // 
             // usersToolStripMenuItem
             // 
@@ -122,6 +128,7 @@
             userLists_menu.Name = "userLists_menu";
             userLists_menu.Size = new Size(156, 28);
             userLists_menu.Text = "All Users";
+            userLists_menu.Click += userLists_menu_Click;
             // 
             // Account_menu
             // 
@@ -135,27 +142,29 @@
             myAccount_menu.Name = "myAccount_menu";
             myAccount_menu.Size = new Size(179, 28);
             myAccount_menu.Text = "My Account";
+            myAccount_menu.Click += myAccount_menu_Click;
             // 
             // logOut_menu
             // 
             logOut_menu.Name = "logOut_menu";
             logOut_menu.Size = new Size(179, 28);
             logOut_menu.Text = "Log out";
+            logOut_menu.Click += logOut_menu_Click;
             // 
-            // dataGridView1
+            // myBookingGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(31, 155);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(892, 383);
-            dataGridView1.TabIndex = 26;
+            myBookingGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            myBookingGridView.Location = new Point(31, 132);
+            myBookingGridView.Name = "myBookingGridView";
+            myBookingGridView.RowHeadersWidth = 51;
+            myBookingGridView.Size = new Size(892, 367);
+            myBookingGridView.TabIndex = 26;
             // 
             // my_book
             // 
             my_book.AutoSize = true;
             my_book.Font = new Font("Lexend SemiBold", 16.8000011F, FontStyle.Bold);
-            my_book.Location = new Point(31, 75);
+            my_book.Location = new Point(31, 71);
             my_book.Name = "my_book";
             my_book.Size = new Size(268, 46);
             my_book.TabIndex = 27;
@@ -167,13 +176,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(950, 559);
             Controls.Add(my_book);
-            Controls.Add(dataGridView1);
+            Controls.Add(myBookingGridView);
             Controls.Add(menuStrip1);
             Name = "myBooking";
             Text = "myBooking";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)myBookingGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,7 +203,7 @@
         private ToolStripMenuItem Account_menu;
         private ToolStripMenuItem myAccount_menu;
         private ToolStripMenuItem logOut_menu;
-        private DataGridView dataGridView1;
+        private DataGridView myBookingGridView;
         private Label my_book;
     }
 }

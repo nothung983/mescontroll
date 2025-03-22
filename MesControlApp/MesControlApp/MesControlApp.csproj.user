@@ -4,7 +4,22 @@
     <Compile Update="AddMydevicecs.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AddNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Admin_Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="BookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BookingLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Detail_Pending.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="DeviceList.cs">
@@ -13,13 +28,37 @@
     <Compile Update="EditDevice.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Edit_User_for_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Main_dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="myBooking.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="mydevice.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Pending_BookingLists.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ReturnBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User_Detail_for_Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User_Profile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User_Profile_Update.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

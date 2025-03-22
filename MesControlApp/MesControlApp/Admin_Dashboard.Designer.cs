@@ -120,14 +120,14 @@
             // pendingBooking_menu
             // 
             pendingBooking_menu.Name = "pendingBooking_menu";
-            pendingBooking_menu.Size = new Size(224, 28);
+            pendingBooking_menu.Size = new Size(219, 28);
             pendingBooking_menu.Text = "Pending Booking";
             pendingBooking_menu.Click += pendingBooking_menu_Click;
             // 
             // allBooking_menu
             // 
             allBooking_menu.Name = "allBooking_menu";
-            allBooking_menu.Size = new Size(224, 28);
+            allBooking_menu.Size = new Size(219, 28);
             allBooking_menu.Text = "All Booking";
             allBooking_menu.Click += allBooking_menu_Click;
             // 
@@ -141,7 +141,7 @@
             // userLists_menu
             // 
             userLists_menu.Name = "userLists_menu";
-            userLists_menu.Size = new Size(224, 28);
+            userLists_menu.Size = new Size(156, 28);
             userLists_menu.Text = "All Users";
             userLists_menu.Click += userLists_menu_Click;
             // 

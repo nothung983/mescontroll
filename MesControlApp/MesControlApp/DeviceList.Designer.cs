@@ -40,7 +40,23 @@
             cboStatus = new ComboBox();
             btnBooking = new Button();
             btnReturnBooking = new Button();
+            menuStrip1 = new MenuStrip();
+            home_menu = new ToolStripMenuItem();
+            myDevice_menu = new ToolStripMenuItem();
+            mybooking_menu = new ToolStripMenuItem();
+            devices_menu = new ToolStripMenuItem();
+            allDevices_MenuItem = new ToolStripMenuItem();
+            booking_menu = new ToolStripMenuItem();
+            pendingBooking_menu = new ToolStripMenuItem();
+            allBooking_menu = new ToolStripMenuItem();
+            usersToolStripMenuItem = new ToolStripMenuItem();
+            userLists_menu = new ToolStripMenuItem();
+            Account_menu = new ToolStripMenuItem();
+            myAccount_menu = new ToolStripMenuItem();
+            logOut_menu = new ToolStripMenuItem();
+            addnewdevice_Btn = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDevice).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dgvDevice
@@ -48,7 +64,7 @@
             dgvDevice.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDevice.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvDevice.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDevice.Location = new Point(28, 113);
+            dgvDevice.Location = new Point(36, 104);
             dgvDevice.Name = "dgvDevice";
             dgvDevice.RowHeadersWidth = 51;
             dgvDevice.Size = new Size(1165, 413);
@@ -58,10 +74,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(28, 73);
+            label1.Font = new Font("Lexend Deca SemiBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(36, 55);
             label1.Name = "label1";
-            label1.Size = new Size(129, 31);
+            label1.Size = new Size(174, 45);
             label1.TabIndex = 1;
             label1.Text = "Device List";
             // 
@@ -69,7 +85,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(522, 80);
+            label2.Location = new Point(530, 71);
             label2.Name = "label2";
             label2.Size = new Size(48, 20);
             label2.TabIndex = 2;
@@ -79,7 +95,7 @@
             // 
             cboType.FormattingEnabled = true;
             cboType.Items.AddRange(new object[] { "All", "Camera", "Lens", "Accessory" });
-            cboType.Location = new Point(622, 76);
+            cboType.Location = new Point(630, 67);
             cboType.Name = "cboType";
             cboType.Size = new Size(131, 28);
             cboType.TabIndex = 3;
@@ -88,7 +104,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(225, 81);
+            label4.Location = new Point(233, 72);
             label4.Name = "label4";
             label4.Size = new Size(53, 20);
             label4.TabIndex = 5;
@@ -96,7 +112,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.Location = new Point(284, 81);
+            txtSearch.Location = new Point(292, 72);
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(209, 27);
             txtSearch.TabIndex = 6;
@@ -105,7 +121,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(576, 81);
+            label3.Location = new Point(584, 72);
             label3.Name = "label3";
             label3.Size = new Size(40, 20);
             label3.TabIndex = 4;
@@ -114,7 +130,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(784, 81);
+            label5.Location = new Point(792, 72);
             label5.Name = "label5";
             label5.Size = new Size(0, 20);
             label5.TabIndex = 7;
@@ -122,7 +138,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(768, 80);
+            label6.Location = new Point(776, 71);
             label6.Name = "label6";
             label6.Size = new Size(49, 20);
             label6.TabIndex = 8;
@@ -132,7 +148,7 @@
             // 
             cboStatus.FormattingEnabled = true;
             cboStatus.Items.AddRange(new object[] { "All", "Available", "Booked", "Under Maintenance" });
-            cboStatus.Location = new Point(823, 77);
+            cboStatus.Location = new Point(831, 68);
             cboStatus.Name = "cboStatus";
             cboStatus.Size = new Size(131, 28);
             cboStatus.TabIndex = 3;
@@ -140,10 +156,11 @@
             // 
             // btnBooking
             // 
-            btnBooking.BackColor = Color.Cyan;
+            btnBooking.BackColor = SystemColors.Highlight;
             btnBooking.FlatStyle = FlatStyle.Popup;
-            btnBooking.ForeColor = SystemColors.ActiveCaptionText;
-            btnBooking.Location = new Point(1035, 62);
+            btnBooking.Font = new Font("Lexend", 10.2F);
+            btnBooking.ForeColor = SystemColors.ButtonHighlight;
+            btnBooking.Location = new Point(218, 537);
             btnBooking.Name = "btnBooking";
             btnBooking.Size = new Size(158, 44);
             btnBooking.TabIndex = 9;
@@ -153,10 +170,11 @@
             // 
             // btnReturnBooking
             // 
-            btnReturnBooking.BackColor = Color.Cyan;
+            btnReturnBooking.BackColor = SystemColors.Highlight;
             btnReturnBooking.FlatStyle = FlatStyle.Popup;
-            btnReturnBooking.ForeColor = SystemColors.ActiveCaptionText;
-            btnReturnBooking.Location = new Point(1035, 12);
+            btnReturnBooking.Font = new Font("Lexend", 10.2F);
+            btnReturnBooking.ForeColor = SystemColors.ButtonHighlight;
+            btnReturnBooking.Location = new Point(36, 537);
             btnReturnBooking.Name = "btnReturnBooking";
             btnReturnBooking.Size = new Size(158, 44);
             btnReturnBooking.TabIndex = 10;
@@ -164,11 +182,129 @@
             btnReturnBooking.UseVisualStyleBackColor = false;
             btnReturnBooking.Click += btnReturnBooking_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Font = new Font("Lexend Deca", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { home_menu, devices_menu, booking_menu, usersToolStripMenuItem, Account_menu });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1245, 32);
+            menuStrip1.TabIndex = 24;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // home_menu
+            // 
+            home_menu.DropDownItems.AddRange(new ToolStripItem[] { myDevice_menu, mybooking_menu });
+            home_menu.Name = "home_menu";
+            home_menu.Size = new Size(67, 28);
+            home_menu.Text = "Home";
+            home_menu.Click += home_menu_Click;
+            // 
+            // myDevice_menu
+            // 
+            myDevice_menu.Name = "myDevice_menu";
+            myDevice_menu.Size = new Size(180, 28);
+            myDevice_menu.Text = "My Devices";
+            myDevice_menu.Click += myDevice_menu_Click;
+            // 
+            // mybooking_menu
+            // 
+            mybooking_menu.Name = "mybooking_menu";
+            mybooking_menu.Size = new Size(180, 28);
+            mybooking_menu.Text = "My Booking";
+            mybooking_menu.Click += mybooking_menu_Click;
+            // 
+            // devices_menu
+            // 
+            devices_menu.DropDownItems.AddRange(new ToolStripItem[] { allDevices_MenuItem });
+            devices_menu.Name = "devices_menu";
+            devices_menu.Size = new Size(81, 28);
+            devices_menu.Text = "Devices";
+            // 
+            // allDevices_MenuItem
+            // 
+            allDevices_MenuItem.Name = "allDevices_MenuItem";
+            allDevices_MenuItem.Size = new Size(173, 28);
+            allDevices_MenuItem.Text = "All Devices";
+            allDevices_MenuItem.Click += allDevices_MenuItem_Click;
+            // 
+            // booking_menu
+            // 
+            booking_menu.DropDownItems.AddRange(new ToolStripItem[] { pendingBooking_menu, allBooking_menu });
+            booking_menu.Name = "booking_menu";
+            booking_menu.Size = new Size(84, 28);
+            booking_menu.Text = "Booking";
+            // 
+            // pendingBooking_menu
+            // 
+            pendingBooking_menu.Name = "pendingBooking_menu";
+            pendingBooking_menu.Size = new Size(219, 28);
+            pendingBooking_menu.Text = "Pending Booking";
+            pendingBooking_menu.Click += pendingBooking_menu_Click;
+            // 
+            // allBooking_menu
+            // 
+            allBooking_menu.Name = "allBooking_menu";
+            allBooking_menu.Size = new Size(219, 28);
+            allBooking_menu.Text = "All Booking";
+            allBooking_menu.Click += allBooking_menu_Click;
+            // 
+            // usersToolStripMenuItem
+            // 
+            usersToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { userLists_menu });
+            usersToolStripMenuItem.Name = "usersToolStripMenuItem";
+            usersToolStripMenuItem.Size = new Size(64, 28);
+            usersToolStripMenuItem.Text = "Users";
+            // 
+            // userLists_menu
+            // 
+            userLists_menu.Name = "userLists_menu";
+            userLists_menu.Size = new Size(156, 28);
+            userLists_menu.Text = "All Users";
+            userLists_menu.Click += userLists_menu_Click;
+            // 
+            // Account_menu
+            // 
+            Account_menu.DropDownItems.AddRange(new ToolStripItem[] { myAccount_menu, logOut_menu });
+            Account_menu.Name = "Account_menu";
+            Account_menu.Size = new Size(83, 28);
+            Account_menu.Text = "Account";
+            // 
+            // myAccount_menu
+            // 
+            myAccount_menu.Name = "myAccount_menu";
+            myAccount_menu.Size = new Size(179, 28);
+            myAccount_menu.Text = "My Account";
+            myAccount_menu.Click += myAccount_menu_Click;
+            // 
+            // logOut_menu
+            // 
+            logOut_menu.Name = "logOut_menu";
+            logOut_menu.Size = new Size(179, 28);
+            logOut_menu.Text = "Log out";
+            logOut_menu.Click += logOut_menu_Click;
+            // 
+            // addnewdevice_Btn
+            // 
+            addnewdevice_Btn.BackColor = SystemColors.Highlight;
+            addnewdevice_Btn.Font = new Font("Lexend", 10.2F);
+            addnewdevice_Btn.ForeColor = SystemColors.ButtonHighlight;
+            addnewdevice_Btn.Location = new Point(393, 537);
+            addnewdevice_Btn.Name = "addnewdevice_Btn";
+            addnewdevice_Btn.Size = new Size(173, 44);
+            addnewdevice_Btn.TabIndex = 25;
+            addnewdevice_Btn.Text = "Add New Device";
+            addnewdevice_Btn.UseVisualStyleBackColor = false;
+            addnewdevice_Btn.Click += addnewdevice_Btn_Click;
+            // 
             // DeviceList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1245, 545);
+            ClientSize = new Size(1245, 617);
+            Controls.Add(addnewdevice_Btn);
+            Controls.Add(menuStrip1);
             Controls.Add(btnReturnBooking);
             Controls.Add(btnBooking);
             Controls.Add(label6);
@@ -185,6 +321,8 @@
             Text = "Device List";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDevice).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -203,5 +341,20 @@
         private ComboBox cboStatus;
         private Button btnBooking;
         private Button btnReturnBooking;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem home_menu;
+        private ToolStripMenuItem myDevice_menu;
+        private ToolStripMenuItem mybooking_menu;
+        private ToolStripMenuItem devices_menu;
+        private ToolStripMenuItem allDevices_MenuItem;
+        private ToolStripMenuItem booking_menu;
+        private ToolStripMenuItem pendingBooking_menu;
+        private ToolStripMenuItem allBooking_menu;
+        private ToolStripMenuItem usersToolStripMenuItem;
+        private ToolStripMenuItem userLists_menu;
+        private ToolStripMenuItem Account_menu;
+        private ToolStripMenuItem myAccount_menu;
+        private ToolStripMenuItem logOut_menu;
+        private Button addnewdevice_Btn;
     }
 }

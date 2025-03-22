@@ -31,7 +31,6 @@
             usr_phone_txt = new TextBox();
             usr_email_txt = new TextBox();
             usr_name_txt = new TextBox();
-            ChangeInfo = new Button();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -44,7 +43,7 @@
             myDevice_menu = new ToolStripMenuItem();
             mybooking_menu = new ToolStripMenuItem();
             devices_menu = new ToolStripMenuItem();
-            aToolStripMenuItem = new ToolStripMenuItem();
+            allDevices_MenuItem = new ToolStripMenuItem();
             booking_menu = new ToolStripMenuItem();
             pendingBooking_menu = new ToolStripMenuItem();
             allBooking_menu = new ToolStripMenuItem();
@@ -53,6 +52,7 @@
             Account_menu = new ToolStripMenuItem();
             myAccount_menu = new ToolStripMenuItem();
             logOut_menu = new ToolStripMenuItem();
+            savenewinfo_btn = new Button();
             ((System.ComponentModel.ISupportInitialize)usr_img_box).BeginInit();
             groupBox1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -78,19 +78,6 @@
             usr_name_txt.Name = "usr_name_txt";
             usr_name_txt.Size = new Size(328, 27);
             usr_name_txt.TabIndex = 17;
-            // 
-            // ChangeInfo
-            // 
-            ChangeInfo.BackColor = Color.MediumSeaGreen;
-            ChangeInfo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ChangeInfo.ForeColor = Color.White;
-            ChangeInfo.Location = new Point(465, 364);
-            ChangeInfo.Name = "ChangeInfo";
-            ChangeInfo.Size = new Size(167, 40);
-            ChangeInfo.TabIndex = 16;
-            ChangeInfo.Text = "Save Changes";
-            ChangeInfo.UseVisualStyleBackColor = false;
-            ChangeInfo.Click += ChangeInfo_Click;
             // 
             // label4
             // 
@@ -182,31 +169,35 @@
             home_menu.Name = "home_menu";
             home_menu.Size = new Size(67, 28);
             home_menu.Text = "Home";
+            home_menu.Click += home_menu_Click;
             // 
             // myDevice_menu
             // 
             myDevice_menu.Name = "myDevice_menu";
             myDevice_menu.Size = new Size(180, 28);
             myDevice_menu.Text = "My Devices";
+            myDevice_menu.Click += myDevice_menu_Click;
             // 
             // mybooking_menu
             // 
             mybooking_menu.Name = "mybooking_menu";
             mybooking_menu.Size = new Size(180, 28);
             mybooking_menu.Text = "My Booking";
+            mybooking_menu.Click += mybooking_menu_Click;
             // 
             // devices_menu
             // 
-            devices_menu.DropDownItems.AddRange(new ToolStripItem[] { aToolStripMenuItem });
+            devices_menu.DropDownItems.AddRange(new ToolStripItem[] { allDevices_MenuItem });
             devices_menu.Name = "devices_menu";
             devices_menu.Size = new Size(81, 28);
             devices_menu.Text = "Devices";
             // 
-            // aToolStripMenuItem
+            // allDevices_MenuItem
             // 
-            aToolStripMenuItem.Name = "aToolStripMenuItem";
-            aToolStripMenuItem.Size = new Size(173, 28);
-            aToolStripMenuItem.Text = "All Devices";
+            allDevices_MenuItem.Name = "allDevices_MenuItem";
+            allDevices_MenuItem.Size = new Size(173, 28);
+            allDevices_MenuItem.Text = "All Devices";
+            allDevices_MenuItem.Click += allDevices_MenuItem_Click;
             // 
             // booking_menu
             // 
@@ -220,12 +211,14 @@
             pendingBooking_menu.Name = "pendingBooking_menu";
             pendingBooking_menu.Size = new Size(219, 28);
             pendingBooking_menu.Text = "Pending Booking";
+            pendingBooking_menu.Click += pendingBooking_menu_Click;
             // 
             // allBooking_menu
             // 
             allBooking_menu.Name = "allBooking_menu";
             allBooking_menu.Size = new Size(219, 28);
             allBooking_menu.Text = "All Booking";
+            allBooking_menu.Click += allBooking_menu_Click;
             // 
             // usersToolStripMenuItem
             // 
@@ -239,6 +232,7 @@
             userLists_menu.Name = "userLists_menu";
             userLists_menu.Size = new Size(156, 28);
             userLists_menu.Text = "All Users";
+            userLists_menu.Click += userLists_menu_Click;
             // 
             // Account_menu
             // 
@@ -252,24 +246,36 @@
             myAccount_menu.Name = "myAccount_menu";
             myAccount_menu.Size = new Size(179, 28);
             myAccount_menu.Text = "My Account";
+            myAccount_menu.Click += myAccount_menu_Click;
             // 
             // logOut_menu
             // 
             logOut_menu.Name = "logOut_menu";
             logOut_menu.Size = new Size(179, 28);
             logOut_menu.Text = "Log out";
+            logOut_menu.Click += logOut_menu_Click;
+            // 
+            // savenewinfo_btn
+            // 
+            savenewinfo_btn.Location = new Point(428, 355);
+            savenewinfo_btn.Name = "savenewinfo_btn";
+            savenewinfo_btn.Size = new Size(199, 46);
+            savenewinfo_btn.TabIndex = 25;
+            savenewinfo_btn.Text = "Save Changes";
+            savenewinfo_btn.UseVisualStyleBackColor = true;
+            savenewinfo_btn.Click += savenewinfo_btn_Click;
             // 
             // User_Profile_Update
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(savenewinfo_btn);
             Controls.Add(menuStrip1);
             Controls.Add(groupBox1);
             Controls.Add(usr_phone_txt);
             Controls.Add(usr_email_txt);
             Controls.Add(usr_name_txt);
-            Controls.Add(ChangeInfo);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -288,7 +294,6 @@
         private TextBox usr_phone_txt;
         private TextBox usr_email_txt;
         private TextBox usr_name_txt;
-        private Button ChangeInfo;
         private Label label4;
         private Label label3;
         private Label label2;
@@ -301,7 +306,7 @@
         private ToolStripMenuItem myDevice_menu;
         private ToolStripMenuItem mybooking_menu;
         private ToolStripMenuItem devices_menu;
-        private ToolStripMenuItem aToolStripMenuItem;
+        private ToolStripMenuItem allDevices_MenuItem;
         private ToolStripMenuItem booking_menu;
         private ToolStripMenuItem pendingBooking_menu;
         private ToolStripMenuItem allBooking_menu;
@@ -310,5 +315,6 @@
         private ToolStripMenuItem Account_menu;
         private ToolStripMenuItem myAccount_menu;
         private ToolStripMenuItem logOut_menu;
+        private Button savenewinfo_btn;
     }
 }

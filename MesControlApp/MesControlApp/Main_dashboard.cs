@@ -7,84 +7,42 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Media_Device_Management;
 using Microsoft.Data.SqlClient;
+using Media_Device_Management;
+using MesControlApp;
 
-namespace MesControlApp
+namespace Media_Device_Management
 {
-    public partial class ChangePassword : Form
+    public partial class Main_dashboard : Form
     {
-        public ChangePassword()
+        public Main_dashboard()
         {
             InitializeComponent();
         }
 
-        private void usr_email_txt_TextChanged(object sender, EventArgs e)
+        private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
-            // Add your event handling code here
+
         }
 
-
-        private void savenewpass_Btn_Click(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            string newPassword = new_pass_txt.Text.Trim();
-            string confirmPassword = re_new_pass_txt.Text.Trim();
 
-            if (string.IsNullOrEmpty(newPassword) || string.IsNullOrEmpty(confirmPassword))
-            {
-                MessageBox.Show("Please fill in both password fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (newPassword != confirmPassword)
-            {
-                MessageBox.Show("Passwords do not match. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            try
-            {
-
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
-                {
-
-                    string query = "UPDATE Users SET User_Pass = @Password WHERE UserID = @UserID";
-
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Password", newPassword);
-                        cmd.Parameters.AddWithValue("@UserID", Session.userID);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Password updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to update password. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
-        private void Back_Btn_Click(object sender, EventArgs e)
+        private void myAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            User_Profile user_Profile = new User_Profile();
-            user_Profile.Show();
+
+        }
+
+        private void Main_dashboard_Load(object sender, EventArgs e)
+        {
+
         }
 
         //menu click events
@@ -139,7 +97,7 @@ namespace MesControlApp
 
         }
 
-        private void home_menu_Click(object sender, EventArgs e)
+        private void home_menu_Click_1(object sender, EventArgs e)
         {
             if (Session.role != "Admin")
             {
@@ -169,6 +127,5 @@ namespace MesControlApp
             Pending_BookingLists pendingBooking = new Pending_BookingLists();
             pendingBooking.Show();
         }
-
     }
 }

@@ -1,6 +1,6 @@
-﻿namespace MesControlApp
+﻿namespace Media_Device_Management
 {
-    partial class User_Profile
+    partial class Main_dashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            Username = new Label();
-            User_mail = new Label();
-            user_phone = new Label();
-            ChangeInfo = new Button();
-            usr_name_txt = new TextBox();
-            usr_email_txt = new TextBox();
-            user_phone_num_txt = new TextBox();
-            ChangePass = new Button();
-            groupBox1 = new GroupBox();
-            usr_image_box = new PictureBox();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            label2 = new Label();
+            panel3 = new Panel();
+            label3 = new Label();
+            panel5 = new Panel();
+            dataGridView1 = new DataGridView();
+            Recent_Booking = new Label();
             menuStrip1 = new MenuStrip();
             home_menu = new ToolStripMenuItem();
             myDevice_menu = new ToolStripMenuItem();
@@ -53,114 +51,104 @@
             Account_menu = new ToolStripMenuItem();
             myAccount_menu = new ToolStripMenuItem();
             logOut_menu = new ToolStripMenuItem();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)usr_image_box).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Poppins", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(446, 42);
+            label1.Location = new Point(39, 14);
             label1.Name = "label1";
-            label1.Size = new Size(196, 53);
-            label1.TabIndex = 0;
-            label1.Text = "User Profile";
+            label1.Size = new Size(65, 29);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
+            label1.Click += label1_Click;
             // 
-            // Username
+            // panel1
             // 
-            Username.AutoSize = true;
-            Username.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            Username.Location = new Point(357, 110);
-            Username.Name = "Username";
-            Username.Size = new Size(98, 25);
-            Username.TabIndex = 3;
-            Username.Text = "Username";
+            panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label1);
+            panel1.Font = new Font("Lexend Deca", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel1.Location = new Point(40, 88);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(147, 57);
+            panel1.TabIndex = 2;
             // 
-            // User_mail
+            // panel2
             // 
-            User_mail.AutoSize = true;
-            User_mail.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            User_mail.Location = new Point(357, 181);
-            User_mail.Name = "User_mail";
-            User_mail.Size = new Size(102, 25);
-            User_mail.TabIndex = 4;
-            User_mail.Text = "User Email";
+            panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(label2);
+            panel2.Font = new Font("Lexend Deca", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel2.Location = new Point(40, 177);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(147, 57);
+            panel2.TabIndex = 3;
             // 
-            // user_phone
+            // label2
             // 
-            user_phone.AutoSize = true;
-            user_phone.Font = new Font("Segoe UI Semibold", 11F, FontStyle.Bold);
-            user_phone.Location = new Point(357, 260);
-            user_phone.Name = "user_phone";
-            user_phone.Size = new Size(185, 25);
-            user_phone.TabIndex = 5;
-            user_phone.Text = "User Phone Number";
+            label2.AutoSize = true;
+            label2.Location = new Point(39, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(66, 29);
+            label2.TabIndex = 1;
+            label2.Text = "label2";
             // 
-            // ChangeInfo
+            // panel3
             // 
-            ChangeInfo.Location = new Point(357, 360);
-            ChangeInfo.Name = "ChangeInfo";
-            ChangeInfo.Size = new Size(167, 40);
-            ChangeInfo.TabIndex = 6;
-            ChangeInfo.Text = "Change Information";
-            ChangeInfo.UseVisualStyleBackColor = true;
-            ChangeInfo.Click += ChangeInfo_Click;
+            panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(label3);
+            panel3.Font = new Font("Lexend Deca", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            panel3.Location = new Point(40, 261);
+            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(147, 57);
+            panel3.TabIndex = 4;
             // 
-            // usr_name_txt
+            // label3
             // 
-            usr_name_txt.Location = new Point(357, 138);
-            usr_name_txt.Name = "usr_name_txt";
-            usr_name_txt.ReadOnly = true;
-            usr_name_txt.Size = new Size(328, 27);
-            usr_name_txt.TabIndex = 7;
+            label3.AutoSize = true;
+            label3.Location = new Point(40, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(66, 29);
+            label3.TabIndex = 1;
+            label3.Text = "label3";
             // 
-            // usr_email_txt
+            // panel5
             // 
-            usr_email_txt.Location = new Point(357, 221);
-            usr_email_txt.Name = "usr_email_txt";
-            usr_email_txt.ReadOnly = true;
-            usr_email_txt.Size = new Size(328, 27);
-            usr_email_txt.TabIndex = 8;
+            panel5.Controls.Add(dataGridView1);
+            panel5.Location = new Point(249, 103);
+            panel5.Margin = new Padding(3, 4, 3, 4);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(510, 399);
+            panel5.TabIndex = 6;
             // 
-            // user_phone_num_txt
+            // dataGridView1
             // 
-            user_phone_num_txt.Location = new Point(357, 299);
-            user_phone_num_txt.Name = "user_phone_num_txt";
-            user_phone_num_txt.ReadOnly = true;
-            user_phone_num_txt.Size = new Size(328, 27);
-            user_phone_num_txt.TabIndex = 9;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(15, 17);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 24;
+            dataGridView1.Size = new Size(478, 362);
+            dataGridView1.TabIndex = 0;
             // 
-            // ChangePass
+            // Recent_Booking
             // 
-            ChangePass.Location = new Point(548, 360);
-            ChangePass.Name = "ChangePass";
-            ChangePass.Size = new Size(158, 40);
-            ChangePass.TabIndex = 10;
-            ChangePass.Text = "Change Password";
-            ChangePass.UseVisualStyleBackColor = true;
-            ChangePass.Click += ChangePass_Click;
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(usr_image_box);
-            groupBox1.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(42, 53);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(277, 358);
-            groupBox1.TabIndex = 22;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "User Image";
-            // 
-            // usr_image_box
-            // 
-            usr_image_box.Location = new Point(21, 46);
-            usr_image_box.Name = "usr_image_box";
-            usr_image_box.Size = new Size(213, 261);
-            usr_image_box.SizeMode = PictureBoxSizeMode.CenterImage;
-            usr_image_box.TabIndex = 12;
-            usr_image_box.TabStop = false;
+            Recent_Booking.AutoSize = true;
+            Recent_Booking.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Recent_Booking.Location = new Point(249, 56);
+            Recent_Booking.Name = "Recent_Booking";
+            Recent_Booking.Size = new Size(183, 31);
+            Recent_Booking.TabIndex = 2;
+            Recent_Booking.Text = "Recent Booking";
             // 
             // menuStrip1
             // 
@@ -169,7 +157,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { home_menu, devices_menu, booking_menu, usersToolStripMenuItem, Account_menu });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 32);
+            menuStrip1.Size = new Size(830, 32);
             menuStrip1.TabIndex = 24;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -179,19 +167,19 @@
             home_menu.Name = "home_menu";
             home_menu.Size = new Size(67, 28);
             home_menu.Text = "Home";
-            home_menu.Click += home_menu_Click;
+            home_menu.Click += home_menu_Click_1;
             // 
             // myDevice_menu
             // 
             myDevice_menu.Name = "myDevice_menu";
-            myDevice_menu.Size = new Size(224, 28);
+            myDevice_menu.Size = new Size(180, 28);
             myDevice_menu.Text = "My Devices";
             myDevice_menu.Click += myDevice_menu_Click;
             // 
             // mybooking_menu
             // 
             mybooking_menu.Name = "mybooking_menu";
-            mybooking_menu.Size = new Size(224, 28);
+            mybooking_menu.Size = new Size(180, 28);
             mybooking_menu.Text = "My Booking";
             mybooking_menu.Click += mybooking_menu_Click;
             // 
@@ -205,7 +193,7 @@
             // allDevices_MenuItem
             // 
             allDevices_MenuItem.Name = "allDevices_MenuItem";
-            allDevices_MenuItem.Size = new Size(224, 28);
+            allDevices_MenuItem.Size = new Size(173, 28);
             allDevices_MenuItem.Text = "All Devices";
             allDevices_MenuItem.Click += allDevices_MenuItem_Click;
             // 
@@ -219,14 +207,14 @@
             // pendingBooking_menu
             // 
             pendingBooking_menu.Name = "pendingBooking_menu";
-            pendingBooking_menu.Size = new Size(224, 28);
+            pendingBooking_menu.Size = new Size(219, 28);
             pendingBooking_menu.Text = "Pending Booking";
             pendingBooking_menu.Click += pendingBooking_menu_Click;
             // 
             // allBooking_menu
             // 
             allBooking_menu.Name = "allBooking_menu";
-            allBooking_menu.Size = new Size(224, 28);
+            allBooking_menu.Size = new Size(219, 28);
             allBooking_menu.Text = "All Booking";
             allBooking_menu.Click += allBooking_menu_Click;
             // 
@@ -240,7 +228,7 @@
             // userLists_menu
             // 
             userLists_menu.Name = "userLists_menu";
-            userLists_menu.Size = new Size(224, 28);
+            userLists_menu.Size = new Size(156, 28);
             userLists_menu.Text = "All Users";
             userLists_menu.Click += userLists_menu_Click;
             // 
@@ -265,26 +253,29 @@
             logOut_menu.Text = "Log out";
             logOut_menu.Click += logOut_menu_Click;
             // 
-            // User_Profile
+            // Main_dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(830, 562);
             Controls.Add(menuStrip1);
-            Controls.Add(groupBox1);
-            Controls.Add(ChangePass);
-            Controls.Add(user_phone_num_txt);
-            Controls.Add(usr_email_txt);
-            Controls.Add(usr_name_txt);
-            Controls.Add(ChangeInfo);
-            Controls.Add(user_phone);
-            Controls.Add(User_mail);
-            Controls.Add(Username);
-            Controls.Add(label1);
-            Name = "User_Profile";
-            Text = "User_Profile";
-            groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)usr_image_box).EndInit();
+            Controls.Add(Recent_Booking);
+            Controls.Add(panel5);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "Main_dashboard";
+            Text = "Dashboard";
+            Load += Main_dashboard_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -292,18 +283,15 @@
         }
 
         #endregion
-
-        private Label label1;
-        private Label Username;
-        private Label User_mail;
-        private Label user_phone;
-        private Button ChangeInfo;
-        private TextBox usr_name_txt;
-        private TextBox usr_email_txt;
-        private TextBox user_phone_num_txt;
-        private Button ChangePass;
-        private GroupBox groupBox1;
-        private PictureBox usr_image_box;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Label Recent_Booking;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem home_menu;
         private ToolStripMenuItem myDevice_menu;

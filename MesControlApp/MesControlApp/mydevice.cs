@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using Media_Device_Management;
-using System.Data.SqlClient;
 
 namespace MesControlApp
 {
@@ -90,7 +89,7 @@ namespace MesControlApp
                     FROM Cameras c
                     LEFT JOIN Brands b ON c.Camera_Brand = b.BrandID
                     WHERE c.OwnerID = @UserID";
-                using (SqlCommand cameraCmd = new SqlCommand(cameraQuery, DatabaseConnection.connection))
+                using (SqlCommand cameraCmd = new SqlCommand(cameraQuery, DatabaseConnection.GetConnection()))
                 {
                     cameraCmd.Parameters.AddWithValue("@UserID", Session.userID);
                     using (SqlDataReader cameraReader = cameraCmd.ExecuteReader())
@@ -113,7 +112,7 @@ namespace MesControlApp
                     FROM Lenses l
                     LEFT JOIN Brands b ON l.Lenses_Brand = b.BrandID
                     WHERE l.OwnerID = @UserID";
-                using (SqlCommand lensCmd = new SqlCommand(lensQuery, DatabaseConnection.connection))
+                using (SqlCommand lensCmd = new SqlCommand(lensQuery, DatabaseConnection.GetConnection()))
                 {
                     lensCmd.Parameters.AddWithValue("@UserID", Session.userID);
                     using (SqlDataReader lensReader = lensCmd.ExecuteReader())
@@ -136,7 +135,7 @@ namespace MesControlApp
                     FROM Accessories a
                     LEFT JOIN Brands b ON a.Accessory_Brand = b.BrandID
                     WHERE a.OwnerID = @UserID";
-                using (SqlCommand accessoryCmd = new SqlCommand(accessoryQuery, DatabaseConnection.connection))
+                using (SqlCommand accessoryCmd = new SqlCommand(accessoryQuery, DatabaseConnection.GetConnection()))
                 {
                     accessoryCmd.Parameters.AddWithValue("@UserID", Session.userID);
                     using (SqlDataReader accessoryReader = accessoryCmd.ExecuteReader())
@@ -194,7 +193,7 @@ namespace MesControlApp
                             FROM Cameras c
                             LEFT JOIN Brands b ON c.Camera_Brand = b.BrandID
                             WHERE c.CameraID = @DeviceID";
-                        using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection))
+                        using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection()))
                         {
                             cmd.Parameters.AddWithValue("@DeviceID", deviceId);
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -220,7 +219,7 @@ namespace MesControlApp
                             FROM Lenses l
                             LEFT JOIN Brands b ON l.Lenses_Brand = b.BrandID
                             WHERE l.LensID = @DeviceID";
-                        using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection))
+                        using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection()))
                         {
                             cmd.Parameters.AddWithValue("@DeviceID", deviceId);
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -248,7 +247,7 @@ namespace MesControlApp
                             FROM Accessories a
                             LEFT JOIN Brands b ON a.Accessory_Brand = b.BrandID
                             WHERE a.AccessoryID = @DeviceID";
-                        using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection))
+                        using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection()))
                         {
                             cmd.Parameters.AddWithValue("@DeviceID", deviceId);
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -304,7 +303,7 @@ namespace MesControlApp
                         if (deviceType == "Camera")
                         {
                             string query = "DELETE FROM Cameras WHERE CameraID = @DeviceID AND OwnerID = @UserID";
-                            using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection))
+                            using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection()))
                             {
                                 cmd.Parameters.AddWithValue("@DeviceID", deviceId);
                                 cmd.Parameters.AddWithValue("@UserID", Session.userID);
@@ -314,7 +313,7 @@ namespace MesControlApp
                         else if (deviceType == "Lens")
                         {
                             string query = "DELETE FROM Lenses WHERE LensID = @DeviceID AND OwnerID = @UserID";
-                            using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection))
+                            using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection()))
                             {
                                 cmd.Parameters.AddWithValue("@DeviceID", deviceId);
                                 cmd.Parameters.AddWithValue("@UserID", Session.userID);
@@ -324,14 +323,14 @@ namespace MesControlApp
                         else if (deviceType == "Accessory")
                         {
                             string deleteBookingsQuery = "DELETE FROM Bookings WHERE AccessoryID = @DeviceID";
-                            using (SqlCommand deleteBookingsCmd = new SqlCommand(deleteBookingsQuery, DatabaseConnection.connection))
+                            using (SqlCommand deleteBookingsCmd = new SqlCommand(deleteBookingsQuery, DatabaseConnection.GetConnection()))
                             {
                                 deleteBookingsCmd.Parameters.AddWithValue("@DeviceID", deviceId);
                                 deleteBookingsCmd.ExecuteNonQuery();
                             }
 
                             string deleteAccessoryQuery = "DELETE FROM Accessories WHERE AccessoryID = @DeviceID AND OwnerID = @UserID";
-                            using (SqlCommand deleteAccessoryCmd = new SqlCommand(deleteAccessoryQuery, DatabaseConnection.connection))
+                            using (SqlCommand deleteAccessoryCmd = new SqlCommand(deleteAccessoryQuery, DatabaseConnection.GetConnection()))
                             {
                                 deleteAccessoryCmd.Parameters.AddWithValue("@DeviceID", deviceId);
                                 deleteAccessoryCmd.Parameters.AddWithValue("@UserID", Session.userID);
@@ -370,6 +369,79 @@ namespace MesControlApp
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        //menu click events
+
+        private void logOut_menu_Click(object sender, EventArgs e)
+        {
+            Logout logout = new Logout();
+        }
+
+        private void myAccount_menu_Click(object sender, EventArgs e)
+        {
+            // Open user profile window
+            this.Hide();
+            User_Profile user_Profile = new User_Profile();
+            user_Profile.Show();
+        }
+
+        private void myDevice_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mydevice myDevices = new mydevice();
+            myDevices.Show();
+        }
+
+        private void mybooking_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            myBooking myBooking = new myBooking();
+            myBooking.Show();
+        }
+
+        private void allDevices_MenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeviceList deviceList = new DeviceList();
+            deviceList.Show();
+        }
+
+        private void userLists_menu_Click(object sender, EventArgs e)
+        {
+            if (Session.role != "Admin")
+            {
+                MessageBox.Show("You do not have permission to access this page", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                this.Hide();
+                UserList userList = new UserList();
+                userList.Show();
+            }
+
+        }
+
+        private void home_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Admin_Dashboard adminDashboard = new Admin_Dashboard();
+            adminDashboard.Show();
+        }
+
+        private void allBooking_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BookingLists bookingList = new BookingLists();
+            bookingList.Show();
+        }
+
+        private void pendingBooking_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Pending_BookingLists pendingBooking = new Pending_BookingLists();
+            pendingBooking.Show();
         }
     }
 }

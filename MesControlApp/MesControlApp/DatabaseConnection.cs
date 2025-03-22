@@ -6,7 +6,10 @@ namespace MesControlApp
 {
     internal class DatabaseConnection
     {
-        public static SqlConnection connection;
+        private static SqlConnection connection;
+
+        private static readonly string connectionString =
+            "Data Source=DANGHUNG_LAPTOP\\MSSQLSERVER2022;Initial Catalog=mediaz_db;Integrated Security=True;MultipleActiveResultSets=True;TrustServerCertificate=True";
 
         public static bool Connect()
         {
@@ -14,8 +17,11 @@ namespace MesControlApp
             {
                 if (connection == null)
                 {
-                    string connectionString = "Data Source=DANGHUNG_LAPTOP\\MSSQLSERVER2022;Initial Catalog=mediaz_db;Integrated Security=True;MultipleActiveResultSets=True;TrustServerCertificate=True";
                     connection = new SqlConnection(connectionString);
+                }
+                else if (string.IsNullOrWhiteSpace(connection.ConnectionString))
+                {
+                    connection.ConnectionString = connectionString;
                 }
 
                 if (connection.State == ConnectionState.Closed)
@@ -36,7 +42,7 @@ namespace MesControlApp
         {
             try
             {
-                if (connection != null && connection.State == System.Data.ConnectionState.Open)
+                if (connection != null && connection.State != ConnectionState.Closed)
                 {
                     connection.Close();
                 }
@@ -51,6 +57,11 @@ namespace MesControlApp
 
         public static SqlConnection GetConnection()
         {
+            if (connection == null || string.IsNullOrWhiteSpace(connection.ConnectionString))
+            {
+                Connect();
+            }
+
             return connection;
         }
     }
