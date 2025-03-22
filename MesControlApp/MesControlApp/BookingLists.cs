@@ -25,6 +25,8 @@ namespace MesControlApp
             }
 
             LoadBookingsLists();
+
+            BookingListGridView.CellClick += BookingListGridView_CellClick;
         }
 
         private void LoadBookingsLists()
@@ -55,13 +57,38 @@ namespace MesControlApp
                         BookingListGridView.DataSource = dt;
                     }
                 }
+
+                if (BookingListGridView.Columns["ViewDetails"] == null)
+                {
+                    DataGridViewButtonColumn viewButton = new DataGridViewButtonColumn();
+                    viewButton.Name = "ViewDetails";
+                    viewButton.HeaderText = "Actions";
+                    viewButton.Text = "View Details";
+                    viewButton.UseColumnTextForButtonValue = true;
+                    BookingListGridView.Columns.Add(viewButton);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error loading bookings: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
+        private void BookingListGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check if the clicked cell is within a valid row index
+            if (e.RowIndex >= 0 && BookingListGridView.Columns[e.ColumnIndex].Name == "ViewDetails")
+            {
+                // Get the BookingID from the selected row
+                int bookingID = Convert.ToInt32(BookingListGridView.Rows[e.RowIndex].Cells["BookingID"].Value);
+
+                // Open the BookingDetail form
+                BookingDetail bookingDetailForm = new BookingDetail(bookingID);
+                bookingDetailForm.Show();
+            }
+        }
+
+
         //menu click events
 
         private void logOut_menu_Click(object sender, EventArgs e)

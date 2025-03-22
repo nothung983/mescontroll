@@ -19,7 +19,7 @@ namespace MesControlApp
         {
             InitializeComponent();
 
-            if (!DatabaseConnection.Connect()) // Kiểm tra nếu kết nối không thành công
+            if (!DatabaseConnection.Connect())
             {
                 MessageBox.Show("Failed to connect to the database.", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

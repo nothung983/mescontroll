@@ -21,15 +21,19 @@ namespace MesControlApp
                 Login login = new Login();
                 login.Show();
             }
-            LoadData("", cboType.SelectedItem?.ToString(), cboStatus.SelectedItem?.ToString()); // Hiển thị toàn bộ dữ liệu khi mở form
 
-            //DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            //btnColumn.HeaderText = "Action";
-            //btnColumn.Text = "Book";
-            //btnColumn.Name = "btnBook";
-            //btnColumn.UseColumnTextForButtonValue = true;
-            //dgvDevice.Columns.Add(btnColumn);
+            LoadData("", cboType.SelectedItem?.ToString(), cboStatus.SelectedItem?.ToString());
 
+            // Only add the Delete button if the user is an Admin
+            if (Session.role == "Admin" && dgvDevice.Columns["btnDelete"] == null)
+            {
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                btnDelete.HeaderText = "Action";
+                btnDelete.Text = "Delete";
+                btnDelete.Name = "btnDelete";
+                btnDelete.UseColumnTextForButtonValue = true;
+                dgvDevice.Columns.Add(btnDelete);
+            }
         }
 
         private void LoadData(string searchWord, string selectedType, string selectedStatus)
@@ -39,8 +43,7 @@ namespace MesControlApp
 
             string query = @"
             SELECT * FROM (
-                SELECT 
-                    c.CameraID AS ID, 
+                SELECT
                     c.Camera_Name AS Device_Name, 
                     'Camera' AS Device_Type, 
                     b.Brand_Name, 
@@ -53,8 +56,7 @@ namespace MesControlApp
 
                 UNION ALL
 
-                SELECT 
-                    l.LensID, 
+                SELECT
                     l.Lenses_Name AS Device_Name, 
                     'Lens' AS Device_Type, 
                     b.Brand_Name, 
@@ -68,7 +70,6 @@ namespace MesControlApp
                 UNION ALL
 
                 SELECT 
-                    a.AccessoryID, 
                     a.Accessory_Name AS Device_Name, 
                     'Accessory' AS Device_Type, 
                     b.Brand_Name, 
@@ -122,6 +123,60 @@ namespace MesControlApp
             }
         }
 
+        private void DeleteDevice(string deviceName, string deviceType)
+        {
+            string tableName = "";
+            string columnName = "";
+
+            // Determine which table to delete from based on the device type
+            switch (deviceType)
+            {
+                case "Camera":
+                    tableName = "Cameras";
+                    columnName = "Camera_Name";
+                    break;
+                case "Lens":
+                    tableName = "Lenses";
+                    columnName = "Lenses_Name";
+                    break;
+                case "Accessory":
+                    tableName = "Accessories";
+                    columnName = "Accessory_Name";
+                    break;
+                default:
+                    MessageBox.Show("Unknown device type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+            }
+
+            string query = $"DELETE FROM {tableName} WHERE {columnName} = @DeviceName";
+
+            try
+            {
+                DatabaseConnection.Connect();
+                using (SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@DeviceName", deviceName);
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Device deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to delete device.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting device: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                DatabaseConnection.CloseConnect();
+            }
+        }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -142,8 +197,30 @@ namespace MesControlApp
 
         private void dgvDevice_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == dgvDevice.Columns["btnDelete"].Index && e.RowIndex >= 0)
+            {
+                if (Session.role != "Admin")
+                {
+                    MessageBox.Show("You do not have permission to delete devices.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
+                string deviceName = dgvDevice.Rows[e.RowIndex].Cells["Device_Name"].Value.ToString();
+                string deviceType = dgvDevice.Rows[e.RowIndex].Cells["Device_Type"].Value.ToString();
+
+                DialogResult confirm = MessageBox.Show($"Are you sure you want to delete {deviceName}?",
+                                                       "Confirm Deletion",
+                                                       MessageBoxButtons.YesNo,
+                                                       MessageBoxIcon.Warning);
+
+                if (confirm == DialogResult.Yes)
+                {
+                    DeleteDevice(deviceName, deviceType);
+                    LoadData(txtSearch.Text.Trim().ToString(), cboType.SelectedItem?.ToString(), cboStatus.SelectedItem?.ToString());
+                }
+            }
         }
+
 
         private void btnBooking_Click(object sender, EventArgs e)
         {
@@ -158,6 +235,11 @@ namespace MesControlApp
             MessageBox.Show(Session.userID.ToString());
         }
 
+        private void addnewdevice_Btn_Click(object sender, EventArgs e)
+        {
+           AddMydevicecs addDevice = new AddMydevicecs();
+           addDevice.ShowDialog();
+        }
 
         //menu click events
 
@@ -230,9 +312,17 @@ namespace MesControlApp
 
         private void allBooking_menu_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            BookingLists bookingList = new BookingLists();
-            bookingList.Show();
+            if (Session.role != "Admin")
+            {
+                MessageBox.Show("You do not have permission to access this page", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                this.Hide();
+                BookingLists bookingList = new BookingLists();
+                bookingList.Show();
+            }
         }
 
         private void pendingBooking_menu_Click(object sender, EventArgs e)
@@ -241,5 +331,7 @@ namespace MesControlApp
             Pending_BookingLists pendingBooking = new Pending_BookingLists();
             pendingBooking.Show();
         }
+
+
     }
 }
