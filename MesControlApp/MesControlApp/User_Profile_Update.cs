@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using Media_Device_Management;
 
 namespace MesControlApp
 {
@@ -17,7 +18,16 @@ namespace MesControlApp
         public User_Profile_Update()
         {
             InitializeComponent();
-            LoadUserInfo();
+            // Lấy userID từ Session
+            if (Session.userID == 0)
+            {
+                MessageBox.Show("No user is logged in! Please log in first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+            else
+            {
+                LoadUserInfo();
+            }
         }
 
         private void LoadUserInfo()
@@ -29,6 +39,7 @@ namespace MesControlApp
                 usr_phone_txt.Text = Session.phoneNumber;
                 usr_email_txt.Text = Session.email;
 
+                // Load user image if available
                 if (!string.IsNullOrEmpty(Session.imagePath))
                 {
                     usr_img_box.Image = Image.FromFile(Session.imagePath);
@@ -36,64 +47,59 @@ namespace MesControlApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error loading user info: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error retrieving user details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void ChangeInfo_Click(object sender, EventArgs e)
+        private void savenewinfo_btn_Click(object sender, EventArgs e)
         {
-            string newFullName = usr_name_txt.Text.Trim();
-            string newPhoneNumber = usr_phone_txt.Text.Trim();
-            string newEmail = usr_email_txt.Text.Trim();
-            string newImagePath = Session.imagePath; // Keep the current image by default
-
-            if (string.IsNullOrEmpty(newFullName) || string.IsNullOrEmpty(newPhoneNumber) || string.IsNullOrEmpty(newEmail))
-            {
-                MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            
+            string query = "UPDATE Users SET User_fullname = @User_fullname, User_Phone_Num = @User_Phone_Num, User_Email = @User_Email, User_Image = @User_Image WHERE UserID = @UserID";
 
             try
             {
                 using (SqlConnection connection = DatabaseConnection.GetConnection())
                 {
-                    connection.Open();
-                    string query = "UPDATE Users SET User_fullname = @FullName, User_Phone_Num = @PhoneNumber, User_Email = @Email, User_Image = @Image WHERE UserID = @UserID";
-
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@FullName", newFullName);
-                        cmd.Parameters.AddWithValue("@PhoneNumber", newPhoneNumber);
-                        cmd.Parameters.AddWithValue("@Email", newEmail);
-                        cmd.Parameters.AddWithValue("@Image", newImagePath);
-                        cmd.Parameters.AddWithValue("@UserID", Session.userID);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        if (rowsAffected > 0)
+                    if (connection.State == ConnectionState.Open)
+                        using (SqlCommand cmd = new SqlCommand(query, connection))
                         {
-                            // Update session data
-                            Session.name = newFullName;
-                            Session.phoneNumber = newPhoneNumber;
-                            Session.email = newEmail;
-                            Session.imagePath = newImagePath;
+                            string newFullName = usr_name_txt.Text;
+                            string newPhoneNumber = usr_phone_txt.Text;
+                            string newEmail = usr_email_txt.Text;
+                            string newImagePath = Session.imagePath;
 
-                            MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            cmd.Parameters.AddWithValue("@User_fullname", newFullName);
+                            cmd.Parameters.AddWithValue("@User_Phone_Num", newPhoneNumber);
+                            cmd.Parameters.AddWithValue("@User_Email", newEmail);
+                            cmd.Parameters.AddWithValue("@User_Image", newImagePath);
+                            cmd.Parameters.AddWithValue("@UserID", Session.userID);
 
-                            // Redirect to user profile
-                            this.Hide();
-                            User_Profile userProfile = new User_Profile();
-                            userProfile.Show();
+                            int rowsAffected = cmd.ExecuteNonQuery();
+                            if (rowsAffected > 0)
+                            {
+                                // Update session data
+                                Session.name = newFullName;
+                                Session.phoneNumber = newPhoneNumber;
+                                Session.email = newEmail;
+                                Session.imagePath = newImagePath;
+
+                                MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                // Redirect to user profile
+                                this.Hide();
+                                User_Profile userProfile = new User_Profile();
+                                userProfile.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No changes were made.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
-                        else
-                        {
-                            MessageBox.Show("No changes were made.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error updating profile: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error updating user details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -105,7 +111,7 @@ namespace MesControlApp
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     usr_img_box.Image = Image.FromFile(openFileDialog.FileName);
-                    Session.imagePath = openFileDialog.FileName; // Store the selected image path
+                    Session.imagePath = openFileDialog.FileName;
                 }
             }
         }
@@ -114,8 +120,6 @@ namespace MesControlApp
         {
             // Add your event handling code here
         }
-
-
 
         //menu click events
 
@@ -126,37 +130,6 @@ namespace MesControlApp
 
         private void myAccount_menu_Click(object sender, EventArgs e)
         {
-            string query = "SELECT UserID, User_Role, User_fullname, User_Phone_Num, User_Email, User_Image FROM Users WHERE UserID = @UserID";
-
-            try
-            {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
-                {
-                    connection.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@UserID", Session.userID);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                // Store user details in session
-                                Session.userID = reader.GetInt32(0);
-                                Session.role = reader.GetString(1);
-                                Session.name = reader.GetString(2);
-                                Session.phoneNumber = reader.GetString(3);
-                                Session.email = reader.GetString(4);
-                                Session.imagePath = reader.IsDBNull(5) ? string.Empty : reader.GetString(5);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error retrieving user details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
             // Open user profile window
             this.Hide();
             User_Profile user_Profile = new User_Profile();
@@ -199,12 +172,21 @@ namespace MesControlApp
             }
 
         }
-
         private void home_menu_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Admin_Dashboard adminDashboard = new Admin_Dashboard();
-            adminDashboard.Show();
+            if (Session.role != "Admin")
+            {
+                this.Hide();
+                Main_dashboard maindashboard = new Main_dashboard();
+                maindashboard.Show();
+            }
+            else
+            {
+                this.Hide();
+                Admin_Dashboard adminDashboard = new Admin_Dashboard();
+                adminDashboard.Show();
+            }
+
         }
 
         private void allBooking_menu_Click(object sender, EventArgs e)

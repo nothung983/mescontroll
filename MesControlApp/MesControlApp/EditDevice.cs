@@ -7,9 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using Media_Device_Management;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 
 namespace MesControlApp
 {
@@ -263,7 +262,7 @@ namespace MesControlApp
             {
                 DatabaseConnection.Connect();
                 string query = "SELECT BrandID, Brand_Name FROM Brands";
-                using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection());
                 using SqlDataReader reader = cmd.ExecuteReader();
 
                 comboBrand.Items.Clear();
@@ -321,7 +320,7 @@ namespace MesControlApp
                         UPDATE Cameras 
                         SET Camera_Name = @NewName, Camera_Brand = @NewBrand, Camera_SensorType = @NewSensorType
                         WHERE CameraID = @DeviceID AND OwnerID = @UserID";
-                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection());
                     cmd.Parameters.AddWithValue("@NewName", newDeviceName);
                     cmd.Parameters.AddWithValue("@NewBrand", newBrandId);
                     cmd.Parameters.AddWithValue("@NewSensorType", newSensorType);
@@ -344,7 +343,7 @@ namespace MesControlApp
                         SET Lenses_Name = @NewName, Lenses_Brand = @NewBrand, 
                             Lenses_FocalLengthMin = @FocalLengthMin, Lenses_FocalLengthMax = @FocalLengthMax, Lenses_Aperture = @Aperture
                         WHERE LensID = @DeviceID AND OwnerID = @UserID";
-                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection());
                     cmd.Parameters.AddWithValue("@NewName", newDeviceName);
                     cmd.Parameters.AddWithValue("@NewBrand", newBrandId);
                     cmd.Parameters.AddWithValue("@FocalLengthMin", newFocalLengthMin);
@@ -361,7 +360,7 @@ namespace MesControlApp
                         UPDATE Accessories 
                         SET Accessory_Name = @NewName, Accessory_Brand = @NewBrand, Accessory_Type = @NewAccessoryType
                         WHERE AccessoryID = @DeviceID AND OwnerID = @UserID";
-                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.connection);
+                    using SqlCommand cmd = new SqlCommand(query, DatabaseConnection.GetConnection());
                     cmd.Parameters.AddWithValue("@NewName", newDeviceName);
                     cmd.Parameters.AddWithValue("@NewBrand", newBrandId);
                     cmd.Parameters.AddWithValue("@NewAccessoryType", newAccessoryType);

@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Media_Device_Management;
 using Microsoft.Data.SqlClient;
 
 namespace MesControlApp
@@ -232,9 +233,7 @@ namespace MesControlApp
 
 
 
-
         //menu click events
-
         private void logOut_menu_Click(object sender, EventArgs e)
         {
             Logout logout = new Logout();
@@ -242,37 +241,6 @@ namespace MesControlApp
 
         private void myAccount_menu_Click(object sender, EventArgs e)
         {
-            string query = "SELECT UserID, User_Role, User_fullname, User_Phone_Num, User_Email, User_Image FROM Users WHERE UserID = @UserID";
-
-            try
-            {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
-                {
-                    connection.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@UserID", Session.userID);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                // Store user details in session
-                                Session.userID = reader.GetInt32(0);
-                                Session.role = reader.GetString(1);
-                                Session.name = reader.GetString(2);
-                                Session.phoneNumber = reader.GetString(3);
-                                Session.email = reader.GetString(4);
-                                Session.imagePath = reader.IsDBNull(5) ? string.Empty : reader.GetString(5);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error retrieving user details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
             // Open user profile window
             this.Hide();
             User_Profile user_Profile = new User_Profile();
@@ -293,7 +261,7 @@ namespace MesControlApp
             myBooking.Show();
         }
 
-        private void allDevices_MenuItem_Click(object sender, EventArgs e)
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             DeviceList deviceList = new DeviceList();
@@ -318,9 +286,19 @@ namespace MesControlApp
 
         private void home_menu_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Admin_Dashboard adminDashboard = new Admin_Dashboard();
-            adminDashboard.Show();
+            if (Session.role != "Admin")
+            {
+                this.Hide();
+                Main_dashboard maindashboard = new Main_dashboard();
+                maindashboard.Show();
+            }
+            else
+            {
+                this.Hide();
+                Admin_Dashboard adminDashboard = new Admin_Dashboard();
+                adminDashboard.Show();
+            }
+
         }
 
         private void allBooking_menu_Click(object sender, EventArgs e)

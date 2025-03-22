@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Media_Device_Management;
 using Microsoft.Data.SqlClient;
 
 namespace MesControlApp
@@ -116,9 +117,19 @@ namespace MesControlApp
 
         private void home_menu_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Admin_Dashboard adminDashboard = new Admin_Dashboard();
-            adminDashboard.Show();
+            if (Session.role != "Admin")
+            {
+                this.Hide();
+                Main_dashboard maindashboard = new Main_dashboard();
+                maindashboard.Show();
+            }
+            else
+            {
+                this.Hide();
+                Admin_Dashboard adminDashboard = new Admin_Dashboard();
+                adminDashboard.Show();
+            }
+
         }
 
         private void allBooking_menu_Click(object sender, EventArgs e)

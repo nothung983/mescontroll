@@ -43,9 +43,10 @@
             myAccount_menu = new ToolStripMenuItem();
             logOut_menu = new ToolStripMenuItem();
             allpendingbookinglist_lb = new Label();
-            dataGridView1 = new DataGridView();
+            PendingBookingGridView = new DataGridView();
+            Back = new Button();
             menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PendingBookingGridView).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -55,7 +56,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { home_menu, devices_menu, booking_menu, usersToolStripMenuItem, Account_menu });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(962, 32);
+            menuStrip1.Size = new Size(960, 32);
             menuStrip1.TabIndex = 26;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -65,18 +66,21 @@
             home_menu.Name = "home_menu";
             home_menu.Size = new Size(67, 28);
             home_menu.Text = "Home";
+            home_menu.Click += home_menu_Click_1;
             // 
             // myDevice_menu
             // 
             myDevice_menu.Name = "myDevice_menu";
             myDevice_menu.Size = new Size(180, 28);
             myDevice_menu.Text = "My Devices";
+            myDevice_menu.Click += myDevice_menu_Click;
             // 
             // mybooking_menu
             // 
             mybooking_menu.Name = "mybooking_menu";
             mybooking_menu.Size = new Size(180, 28);
             mybooking_menu.Text = "My Booking";
+            mybooking_menu.Click += mybooking_menu_Click;
             // 
             // devices_menu
             // 
@@ -90,6 +94,7 @@
             allDevices_MenuItem.Name = "allDevices_MenuItem";
             allDevices_MenuItem.Size = new Size(173, 28);
             allDevices_MenuItem.Text = "All Devices";
+            allDevices_MenuItem.Click += allDevices_MenuItem_Click;
             // 
             // booking_menu
             // 
@@ -103,12 +108,14 @@
             pendingBooking_menu.Name = "pendingBooking_menu";
             pendingBooking_menu.Size = new Size(219, 28);
             pendingBooking_menu.Text = "Pending Booking";
+            pendingBooking_menu.Click += pendingBooking_menu_Click;
             // 
             // allBooking_menu
             // 
             allBooking_menu.Name = "allBooking_menu";
             allBooking_menu.Size = new Size(219, 28);
             allBooking_menu.Text = "All Booking";
+            allBooking_menu.Click += allBooking_menu_Click;
             // 
             // usersToolStripMenuItem
             // 
@@ -122,6 +129,7 @@
             userLists_menu.Name = "userLists_menu";
             userLists_menu.Size = new Size(156, 28);
             userLists_menu.Text = "All Users";
+            userLists_menu.Click += userLists_menu_Click;
             // 
             // Account_menu
             // 
@@ -135,12 +143,14 @@
             myAccount_menu.Name = "myAccount_menu";
             myAccount_menu.Size = new Size(179, 28);
             myAccount_menu.Text = "My Account";
+            myAccount_menu.Click += myAccount_menu_Click;
             // 
             // logOut_menu
             // 
             logOut_menu.Name = "logOut_menu";
             logOut_menu.Size = new Size(179, 28);
             logOut_menu.Text = "Log out";
+            logOut_menu.Click += logOut_menu_Click;
             // 
             // allpendingbookinglist_lb
             // 
@@ -152,28 +162,40 @@
             allpendingbookinglist_lb.TabIndex = 29;
             allpendingbookinglist_lb.Text = "Pending Booking Lists";
             // 
-            // dataGridView1
+            // PendingBookingGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(22, 142);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(892, 383);
-            dataGridView1.TabIndex = 28;
+            PendingBookingGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PendingBookingGridView.Location = new Point(22, 142);
+            PendingBookingGridView.Name = "PendingBookingGridView";
+            PendingBookingGridView.RowHeadersWidth = 51;
+            PendingBookingGridView.Size = new Size(892, 395);
+            PendingBookingGridView.TabIndex = 28;
+            // 
+            // Back
+            // 
+            Back.Font = new Font("Lexend Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Back.Location = new Point(770, 91);
+            Back.Name = "Back";
+            Back.Size = new Size(144, 39);
+            Back.TabIndex = 30;
+            Back.Text = "Back";
+            Back.UseVisualStyleBackColor = true;
+            Back.Click += Back_Click;
             // 
             // Pending_BookingLists
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(962, 557);
+            ClientSize = new Size(960, 595);
+            Controls.Add(Back);
             Controls.Add(allpendingbookinglist_lb);
-            Controls.Add(dataGridView1);
+            Controls.Add(PendingBookingGridView);
             Controls.Add(menuStrip1);
             Name = "Pending_BookingLists";
             Text = "Pending_BookingLists";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PendingBookingGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -195,6 +217,7 @@
         private ToolStripMenuItem myAccount_menu;
         private ToolStripMenuItem logOut_menu;
         private Label allpendingbookinglist_lb;
-        private DataGridView dataGridView1;
+        private DataGridView PendingBookingGridView;
+        private Button Back;
     }
 }
