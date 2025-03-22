@@ -2,6 +2,7 @@
 using System.Data;
 using Microsoft.Data.SqlClient;
 using System.Windows.Forms;
+using Media_Device_Management;
 
 namespace MesControlApp
 {
@@ -12,6 +13,7 @@ namespace MesControlApp
         public Admin_Dashboard()
         {
             InitializeComponent();
+            //Latest_Req_Load();
         }
 
         private void LoadTotalUsers()
@@ -28,7 +30,7 @@ namespace MesControlApp
 
                         MessageBox.Show("Total Users Count: " + totalUsers.ToString(), "Debug Info");
 
-                        total_usr_lb.Text = "Total Users: " + totalUsers.ToString();
+                        total_usr_lb.Text = $"Total Users: {totalUsers}";
                     }
                 }
             }
@@ -100,32 +102,23 @@ namespace MesControlApp
                 MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
-        private void Admin_Dashboard_Load(object sender, EventArgs e)
-        {
-            LoadTotalUsers();
-            LoadTotalDevices();
-            LoadTotalBookings();
-            LoadTotalBrands();
-            LoadTotalUsersOnLoad();
-        }
-
-        private void LoadTotalUsersOnLoad()
+        private void Latest_Req_Load()
         {
             try
             {
                 using (SqlConnection connection = DatabaseConnection.GetConnection())
                 {
                     connection.Open();
-                    string query = "SELECT COUNT(*) FROM Users";
+                    string query = @"SELECT TOP 10  r.RequestID, u.User_fullname, r.DeviceType, r.Request_content, r.CreatedAt 
+                                    FROM Requests r JOIN Users u ON r.UserID = u.UserID ORDER BY r.CreatedAt DESC;";
                     using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
-                        int totalUsers = (int)cmd.ExecuteScalar();
-
-                        MessageBox.Show("Total Users Count: " + totalUsers.ToString(), "Debug Info");
-
-                        total_usr_lb.Text = "Total Users: " + totalUsers.ToString();
+                       using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                       {
+                          DataTable dt = new DataTable();
+                          adapter.Fill(dt);
+                          latest_req.DataSource = dt;
+                       }
                     }
                 }
             }
@@ -135,15 +128,13 @@ namespace MesControlApp
             }
         }
 
-
+        //menu click events
         private void total_usr_lb_Click(object sender, EventArgs e)
         {
             this.Hide();
             UserList userList = new UserList();
             userList.Show();
         }
-
-        //menu click events
 
         private void logOut_menu_Click(object sender, EventArgs e)
         {
@@ -152,36 +143,6 @@ namespace MesControlApp
 
         private void myAccount_menu_Click(object sender, EventArgs e)
         {
-            string query = "SELECT UserID, User_Role, User_fullname, User_Phone_Num, User_Email, User_Image FROM Users WHERE UserID = @UserID";
-
-            try
-            {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
-                {
-                    connection.Open();
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@UserID", Session.userID);
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                // Store user details in session
-                                Session.userID = reader.GetInt32(0);
-                                Session.role = reader.GetString(1);
-                                Session.name = reader.GetString(2);
-                                Session.phoneNumber = reader.GetString(3);
-                                Session.email = reader.GetString(4);
-                                Session.imagePath = reader.IsDBNull(5) ? string.Empty : reader.GetString(5);
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error retrieving user details: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
             // Open user profile window
             this.Hide();
@@ -228,9 +189,19 @@ namespace MesControlApp
 
         private void home_menu_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Admin_Dashboard adminDashboard = new Admin_Dashboard();
-            adminDashboard.Show();
+            if (Session.role != "Admin")
+            {
+                this.Hide();
+                Main_dashboard maindashboard = new Main_dashboard();
+                maindashboard.Show();
+            }
+            else
+            {
+                this.Hide();
+                Admin_Dashboard adminDashboard = new Admin_Dashboard();
+                adminDashboard.Show();
+            }
+
         }
 
         private void allBooking_menu_Click(object sender, EventArgs e)
