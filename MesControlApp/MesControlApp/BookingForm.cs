@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -34,7 +34,7 @@ namespace MesControlApp
         {
             DatabaseConnection.Connect();
             string query = $@"select {deviceID}, {deviceName} from {table} where Booking_Status <> 'Under Maintenance'";
-            SqlDataAdapter ad = new SqlDataAdapter(query, DatabaseConnection.connection);
+            SqlDataAdapter ad = new SqlDataAdapter(query, DatabaseConnection.GetConnection());
             DataTable dt = new DataTable();
             ad.Fill(dt);
             return dt;
@@ -46,7 +46,7 @@ namespace MesControlApp
             VALUES (@UserID, @CameraID, @LensID, @AccessoryID, @StartDate, @EndDate, 'Pending')";
 
             DatabaseConnection.Connect();
-            SqlCommand sql = new SqlCommand(query, DatabaseConnection.connection);
+            SqlCommand sql = new SqlCommand(query, DatabaseConnection.GetConnection());
             sql.Parameters.AddWithValue("@UserID", userID);
             sql.Parameters.AddWithValue("@CameraID", (object)CameraID ?? DBNull.Value);
             sql.Parameters.AddWithValue("@LensID", (object)LensID ?? DBNull.Value);
@@ -101,7 +101,7 @@ namespace MesControlApp
                             WHERE {columnID}  = @DeviceID
                             AND Booking_Status = 'Approved'
                             AND (StartDate <= @EndDate AND EndDate >= @StartDate)";
-            SqlCommand sql = new SqlCommand(query, DatabaseConnection.connection);
+            SqlCommand sql = new SqlCommand(query, DatabaseConnection.GetConnection());
             sql.Parameters.AddWithValue("@DeviceID", deviceID);
             sql.Parameters.AddWithValue("@EndDate", end);
             sql.Parameters.AddWithValue("@StartDate", start);
@@ -133,7 +133,7 @@ namespace MesControlApp
                 MessageBox.Show("Need Booking more than 1 day", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (cameraID.HasValue && !IsDeviceAvailableAtTime("CameraID", cameraID.Value, start, end )) 
+            if (cameraID.HasValue && !IsDeviceAvailableAtTime("CameraID", cameraID.Value, start, end))
             {
                 MessageBox.Show("This camera already booked on that day!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -149,8 +149,90 @@ namespace MesControlApp
                 return;
 
             }
-            BookingDevice(id, cameraID, lensID,accID,start,end);
+            BookingDevice(id, cameraID, lensID, accID, start, end);
             MessageBox.Show("Booked Success. Wait for Approve", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        } 
+        }
+
+        //menu click events
+
+        private void logOut_menu_Click(object sender, EventArgs e)
+        {
+            Logout logout = new Logout();
+        }
+
+        private void myAccount_menu_Click(object sender, EventArgs e)
+        {
+            // Open user profile window
+            this.Hide();
+            User_Profile user_Profile = new User_Profile();
+            user_Profile.Show();
+        }
+
+        private void myDevice_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            mydevice myDevices = new mydevice();
+            myDevices.Show();
+        }
+
+        private void mybooking_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            myBooking myBooking = new myBooking();
+            myBooking.Show();
+        }
+
+        private void allDevices_MenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeviceList deviceList = new DeviceList();
+            deviceList.Show();
+        }
+
+        private void userLists_menu_Click(object sender, EventArgs e)
+        {
+            if (Session.role != "Admin")
+            {
+                MessageBox.Show("You do not have permission to access this page", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                this.Hide();
+                UserList userList = new UserList();
+                userList.Show();
+            }
+
+        }
+
+        private void home_menu_Click(object sender, EventArgs e)
+        {
+            if (Session.role != "Admin")
+            {
+                this.Hide();
+                Main_dashboard maindashboard = new Main_dashboard();
+                maindashboard.Show();
+            }
+            else
+            {
+                this.Hide();
+                Admin_Dashboard adminDashboard = new Admin_Dashboard();
+                adminDashboard.Show();
+            }
+        }
+
+        private void allBooking_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            BookingLists bookingList = new BookingLists();
+            bookingList.Show();
+        }
+
+        private void pendingBooking_menu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Pending_BookingLists pendingBooking = new Pending_BookingLists();
+            pendingBooking.Show();
+        }
     }
 }
