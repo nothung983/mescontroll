@@ -8,29 +8,34 @@ namespace MesControlApp
 {
     public partial class Admin_Dashboard : Form
     {
-        private DatabaseConnection conn = new DatabaseConnection();
-
         public Admin_Dashboard()
         {
             InitializeComponent();
-            //Latest_Req_Load();
+            LoadTotalUsers();
+            LoadTotalDevices();
+            LoadTotalBookings();
+            LoadTotalBrands();
+            LoadLatestBooking();
         }
 
         private void LoadTotalUsers()
-        {
+        { 
+            string query = "SELECT COUNT(*) FROM Users";
             try
             {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                SqlConnection connection = DatabaseConnection.GetConnection();
+                if (connection.State == ConnectionState.Closed)
                 {
                     connection.Open();
-                    string query = "SELECT COUNT(*) FROM Users";
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                }
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        int totalUsers = (int)cmd.ExecuteScalar();
-
-                        MessageBox.Show("Total Users Count: " + totalUsers.ToString(), "Debug Info");
-
-                        total_usr_lb.Text = $"Total Users: {totalUsers}";
+                        if (reader.Read())
+                        {
+                            total_usr_lb.Text = "Total Users: " + reader.GetInt32(0).ToString();
+                        }
                     }
                 }
             }
@@ -44,14 +49,23 @@ namespace MesControlApp
         {
             try
             {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                string query = @"SELECT 
+                (SELECT COUNT(*) FROM Cameras) +
+                (SELECT COUNT(*) FROM Lenses) +
+                (SELECT COUNT(*) FROM Accessories) AS Devices;";
+                SqlConnection connection = DatabaseConnection.GetConnection();
+                if(connection.State == ConnectionState.Closed)
                 {
                     connection.Open();
-                    string query = "SELECT COUNT(*) FROM Devices";
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                }
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        int totalDevices = (int)cmd.ExecuteScalar();
-                        total_dev_lb.Text = "Total Devices: " + totalDevices.ToString();
+                        if (reader.Read())
+                        {
+                            total_dev_lb.Text = "Total Devices: " + reader.GetInt32(0).ToString();
+                        }
                     }
                 }
             }
@@ -63,16 +77,22 @@ namespace MesControlApp
 
         private void LoadTotalBookings()
         {
+            SqlConnection connection = DatabaseConnection.GetConnection();
+            string query = "SELECT COUNT(*) FROM Bookings";
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }   
             try
             {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    connection.Open();
-                    string query = "SELECT COUNT(*) FROM Bookings";
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        int totalBookings = (int)cmd.ExecuteScalar();
-                        total_booking_lb.Text = "Total Bookings: " + totalBookings.ToString();
+                        if (reader.Read())
+                        {
+                            total_booking_lb.Text = "Total Bookings: " + reader.GetInt32(0).ToString();
+                        }
                     }
                 }
             }
@@ -84,16 +104,22 @@ namespace MesControlApp
 
         private void LoadTotalBrands()
         {
+            SqlConnection connection = DatabaseConnection.GetConnection();
+            string query = "SELECT COUNT(*) FROM Brands";
+            if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
             try
             {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    connection.Open();
-                    string query = "SELECT COUNT(*) FROM Brands";
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        int totalBrands = (int)cmd.ExecuteScalar();
-                        total_brands_lb.Text = "Total Brands: " + totalBrands.ToString();
+                        if (reader.Read())
+                        {
+                            total_brands_lb.Text = "Total Brands: " + reader.GetInt32(0).ToString();
+                        }
                     }
                 }
             }
@@ -102,23 +128,29 @@ namespace MesControlApp
                 MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void Latest_Req_Load()
+        private void LoadLatestBooking()
         {
             try
             {
-                using (SqlConnection connection = DatabaseConnection.GetConnection())
+                SqlConnection connection = DatabaseConnection.GetConnection();
+                if (connection.State == ConnectionState.Closed) connection.Open();
+
+                string query = @"
+                      SELECT TOP 10 U.User_fullname AS 'User', 
+                      C.Camera_Name AS 'Camera', 
+                      B.StartDate, B.EndDate
+                      FROM Bookings B
+                      JOIN Users U ON B.UserID = U.UserID
+                      LEFT JOIN Cameras C ON B.CameraID = C.CameraID
+                      ORDER BY B.StartDate DESC";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    connection.Open();
-                    string query = @"SELECT TOP 10  r.RequestID, u.User_fullname, r.DeviceType, r.Request_content, r.CreatedAt 
-                                    FROM Requests r JOIN Users u ON r.UserID = u.UserID ORDER BY r.CreatedAt DESC;";
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
-                       using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                       {
-                          DataTable dt = new DataTable();
-                          adapter.Fill(dt);
-                          latest_req.DataSource = dt;
-                       }
+                        adapter.Fill(dt);
+                        latest_book_DataGridView.DataSource = dt;
                     }
                 }
             }
@@ -127,8 +159,6 @@ namespace MesControlApp
                 MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        //menu click events
         private void total_usr_lb_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -136,6 +166,7 @@ namespace MesControlApp
             userList.Show();
         }
 
+        //menu click events
         private void logOut_menu_Click(object sender, EventArgs e)
         {
             Logout logout = new Logout();

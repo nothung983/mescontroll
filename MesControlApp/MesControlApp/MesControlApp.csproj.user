@@ -10,6 +10,9 @@
     <Compile Update="Admin_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="BookingDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="BookingForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            total_usr_devices_txt = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            label2 = new Label();
+            total_usr_book_txt = new Label();
             panel3 = new Panel();
-            label3 = new Label();
-            panel5 = new Panel();
-            dataGridView1 = new DataGridView();
-            Recent_Booking = new Label();
+            usr_total_pend_txt = new Label();
+            welcome_lb = new Label();
             menuStrip1 = new MenuStrip();
             home_menu = new ToolStripMenuItem();
             myDevice_menu = new ToolStripMenuItem();
@@ -51,104 +49,86 @@
             Account_menu = new ToolStripMenuItem();
             myAccount_menu = new ToolStripMenuItem();
             logOut_menu = new ToolStripMenuItem();
+            recent_book_Groupbox = new GroupBox();
+            recentbook_GridView = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
+            recent_book_Groupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)recentbook_GridView).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // total_usr_devices_txt
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(39, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(65, 29);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
-            label1.Click += label1_Click;
+            total_usr_devices_txt.AutoSize = true;
+            total_usr_devices_txt.Location = new Point(20, 14);
+            total_usr_devices_txt.Name = "total_usr_devices_txt";
+            total_usr_devices_txt.Size = new Size(65, 29);
+            total_usr_devices_txt.TabIndex = 1;
+            total_usr_devices_txt.Text = "label1";
+            total_usr_devices_txt.Click += label1_Click;
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(total_usr_devices_txt);
             panel1.Font = new Font("Lexend Deca", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel1.Location = new Point(40, 88);
+            panel1.Location = new Point(44, 146);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(147, 57);
+            panel1.Size = new Size(321, 57);
             panel1.TabIndex = 2;
             // 
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(label2);
+            panel2.Controls.Add(total_usr_book_txt);
             panel2.Font = new Font("Lexend Deca", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel2.Location = new Point(40, 177);
+            panel2.Location = new Point(44, 235);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(147, 57);
+            panel2.Size = new Size(321, 57);
             panel2.TabIndex = 3;
             // 
-            // label2
+            // total_usr_book_txt
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(39, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(66, 29);
-            label2.TabIndex = 1;
-            label2.Text = "label2";
+            total_usr_book_txt.AutoSize = true;
+            total_usr_book_txt.Location = new Point(20, 13);
+            total_usr_book_txt.Name = "total_usr_book_txt";
+            total_usr_book_txt.Size = new Size(66, 29);
+            total_usr_book_txt.TabIndex = 1;
+            total_usr_book_txt.Text = "label2";
             // 
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(label3);
+            panel3.Controls.Add(usr_total_pend_txt);
             panel3.Font = new Font("Lexend Deca", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panel3.Location = new Point(40, 261);
+            panel3.Location = new Point(44, 319);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(147, 57);
+            panel3.Size = new Size(321, 57);
             panel3.TabIndex = 4;
             // 
-            // label3
+            // usr_total_pend_txt
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(40, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(66, 29);
-            label3.TabIndex = 1;
-            label3.Text = "label3";
+            usr_total_pend_txt.AutoSize = true;
+            usr_total_pend_txt.Location = new Point(20, 15);
+            usr_total_pend_txt.Name = "usr_total_pend_txt";
+            usr_total_pend_txt.Size = new Size(66, 29);
+            usr_total_pend_txt.TabIndex = 1;
+            usr_total_pend_txt.Text = "label3";
             // 
-            // panel5
+            // welcome_lb
             // 
-            panel5.Controls.Add(dataGridView1);
-            panel5.Location = new Point(249, 103);
-            panel5.Margin = new Padding(3, 4, 3, 4);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(510, 399);
-            panel5.TabIndex = 6;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(15, 17);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 24;
-            dataGridView1.Size = new Size(478, 362);
-            dataGridView1.TabIndex = 0;
-            // 
-            // Recent_Booking
-            // 
-            Recent_Booking.AutoSize = true;
-            Recent_Booking.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Recent_Booking.Location = new Point(249, 56);
-            Recent_Booking.Name = "Recent_Booking";
-            Recent_Booking.Size = new Size(183, 31);
-            Recent_Booking.TabIndex = 2;
-            Recent_Booking.Text = "Recent Booking";
+            welcome_lb.AutoSize = true;
+            welcome_lb.Font = new Font("Lexend Deca Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            welcome_lb.Location = new Point(49, 52);
+            welcome_lb.Name = "welcome_lb";
+            welcome_lb.Size = new Size(81, 32);
+            welcome_lb.TabIndex = 2;
+            welcome_lb.Text = "label4";
             // 
             // menuStrip1
             // 
@@ -157,7 +137,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { home_menu, devices_menu, booking_menu, usersToolStripMenuItem, Account_menu });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(830, 32);
+            menuStrip1.Size = new Size(960, 32);
             menuStrip1.TabIndex = 24;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -242,25 +222,45 @@
             // myAccount_menu
             // 
             myAccount_menu.Name = "myAccount_menu";
-            myAccount_menu.Size = new Size(224, 28);
+            myAccount_menu.Size = new Size(179, 28);
             myAccount_menu.Text = "My Account";
             myAccount_menu.Click += myAccount_menu_Click;
             // 
             // logOut_menu
             // 
             logOut_menu.Name = "logOut_menu";
-            logOut_menu.Size = new Size(224, 28);
+            logOut_menu.Size = new Size(179, 28);
             logOut_menu.Text = "Log out";
             logOut_menu.Click += logOut_menu_Click;
+            // 
+            // recent_book_Groupbox
+            // 
+            recent_book_Groupbox.Controls.Add(recentbook_GridView);
+            recent_book_Groupbox.Font = new Font("Lexend Deca SemiBold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            recent_book_Groupbox.Location = new Point(408, 128);
+            recent_book_Groupbox.Name = "recent_book_Groupbox";
+            recent_book_Groupbox.Size = new Size(516, 309);
+            recent_book_Groupbox.TabIndex = 25;
+            recent_book_Groupbox.TabStop = false;
+            recent_book_Groupbox.Text = "Recent Booking";
+            // 
+            // recentbook_GridView
+            // 
+            recentbook_GridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            recentbook_GridView.Location = new Point(12, 36);
+            recentbook_GridView.Name = "recentbook_GridView";
+            recentbook_GridView.RowHeadersWidth = 51;
+            recentbook_GridView.Size = new Size(486, 256);
+            recentbook_GridView.TabIndex = 0;
             // 
             // Main_dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(830, 562);
+            ClientSize = new Size(960, 452);
+            Controls.Add(recent_book_Groupbox);
             Controls.Add(menuStrip1);
-            Controls.Add(Recent_Booking);
-            Controls.Add(panel5);
+            Controls.Add(welcome_lb);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -274,24 +274,22 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            recent_book_Groupbox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)recentbook_GridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label total_usr_devices_txt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label total_usr_book_txt;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private Label Recent_Booking;
+        private System.Windows.Forms.Label usr_total_pend_txt;
+        private Label welcome_lb;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem home_menu;
         private ToolStripMenuItem myDevice_menu;
@@ -306,5 +304,7 @@
         private ToolStripMenuItem Account_menu;
         private ToolStripMenuItem myAccount_menu;
         private ToolStripMenuItem logOut_menu;
+        private GroupBox recent_book_Groupbox;
+        private DataGridView recentbook_GridView;
     }
 }

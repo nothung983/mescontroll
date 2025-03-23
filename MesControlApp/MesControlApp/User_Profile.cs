@@ -89,6 +89,7 @@ namespace MesControlApp
         // Chuyển sang trang chỉnh sửa thông tin
         private void ChangeInfo_Click(object sender, EventArgs e)
         {
+            this.Hide();
             User_Profile_Update changeInfo = new User_Profile_Update();
             changeInfo.ShowDialog();
         }
