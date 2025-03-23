@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Media_Device_Management;
 using MesControlApp;
+using System.Collections;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Media_Device_Management
 {
@@ -18,6 +20,147 @@ namespace Media_Device_Management
         public Main_dashboard()
         {
             InitializeComponent();
+            User_RecentBooking();
+            TotalDevicesUserload();
+            welcome_usr_load();
+            TotalPendingBooking();
+            TotalUserBooking();
+        }
+
+        private void welcome_usr_load()
+        {
+            try
+            {
+                SqlConnection connection = DatabaseConnection.GetConnection();
+                if (connection.State == ConnectionState.Closed) connection.Open();
+                string query = "SELECT User_fullname FROM Users WHERE UserID = @UserID";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", Session.userID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            welcome_lb.Text = "Hello, " + reader.GetString(0) + "\nWelcome to Media Devices Management App";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+        }
+
+        private void User_RecentBooking()
+        {
+            try
+            {
+                SqlConnection connection = DatabaseConnection.GetConnection();
+                if (connection.State == ConnectionState.Closed) connection.Open();
+                string query = @"
+                        SELECT TOP 10 C.Camera_Name as 'Camera', A.Accessory_Name as 'Accessory', L.Lenses_name as 'Lens', 
+                               B.StartDate as 'Start Date', B.EndDate as 'End Date', B.Booking_Status as 'Status'
+                        FROM Bookings B 
+                        LEFT JOIN Cameras C ON B.CameraID = C.CameraID
+                        LEFT JOIN Accessories A ON B.AccessoryID = A.AccessoryID
+                        LEFT JOIN Lenses L ON B.LensID = L.LensID 
+                        WHERE B.UserID = @UserID";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", Session.userID);
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        adapter.Fill(dt);
+                        recentbook_GridView.DataSource = dt;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TotalDevicesUserload()
+        {
+            try
+            {
+                SqlConnection connection = DatabaseConnection.GetConnection();
+                if (connection.State == ConnectionState.Closed) connection.Open();
+                string query = @"SELECT 
+                (SELECT COUNT(*) FROM Cameras WHERE OwnerID = @UserID) +
+                (SELECT COUNT(*) FROM Lenses WHERE OwnerID = @UserID) +
+                (SELECT COUNT(*) FROM Accessories WHERE OwnerID = @UserID) AS Devices ;";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", Session.userID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            total_usr_devices_txt.Text = "Your Devices: " + reader.GetInt32(0).ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TotalPendingBooking()
+        {
+            try
+            {
+                SqlConnection connection = DatabaseConnection.GetConnection();
+                if (connection.State == ConnectionState.Closed) connection.Open();
+                string query = "SELECT COUNT(*) FROM Bookings WHERE Booking_Status = 'Pending' and UserID = @UserID;";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", Session.userID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usr_total_pend_txt.Text = "Pending Bookings: " + reader.GetInt32(0).ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TotalUserBooking()
+        {
+            try
+            {
+                SqlConnection connection = DatabaseConnection.GetConnection();
+                if (connection.State == ConnectionState.Closed) connection.Open();
+                string query = "SELECT COUNT(*) FROM Bookings WHERE UserID = @UserID;";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", Session.userID);
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            total_usr_book_txt.Text = "Your Bookings: " + reader.GetInt32(0).ToString();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void bookingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,11 +174,6 @@ namespace Media_Device_Management
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void myAccountToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

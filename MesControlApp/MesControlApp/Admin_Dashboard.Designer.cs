@@ -50,17 +50,15 @@
             total_usr_lb = new Label();
             total_brands_panel = new Panel();
             total_brands_lb = new Label();
-            latest_req_groupBox = new GroupBox();
-            latest_req = new DataGridView();
-            req_from = new DataGridViewTextBoxColumn();
-            device_type = new DataGridViewTextBoxColumn();
+            latest_book_groupBox = new GroupBox();
+            latest_book_DataGridView = new DataGridView();
             menuStrip1.SuspendLayout();
             total_booking_panel.SuspendLayout();
             total_dev_panel.SuspendLayout();
             total_usr_panel.SuspendLayout();
             total_brands_panel.SuspendLayout();
-            latest_req_groupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)latest_req).BeginInit();
+            latest_book_groupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)latest_book_DataGridView).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -180,7 +178,7 @@
             // total_booking_lb
             // 
             total_booking_lb.AutoSize = true;
-            total_booking_lb.Location = new Point(124, 15);
+            total_booking_lb.Location = new Point(34, 15);
             total_booking_lb.Name = "total_booking_lb";
             total_booking_lb.Size = new Size(66, 29);
             total_booking_lb.TabIndex = 1;
@@ -200,7 +198,7 @@
             // total_dev_lb
             // 
             total_dev_lb.AutoSize = true;
-            total_dev_lb.Location = new Point(124, 13);
+            total_dev_lb.Location = new Point(33, 14);
             total_dev_lb.Name = "total_dev_lb";
             total_dev_lb.Size = new Size(66, 29);
             total_dev_lb.TabIndex = 1;
@@ -220,7 +218,7 @@
             // total_usr_lb
             // 
             total_usr_lb.AutoSize = true;
-            total_usr_lb.Location = new Point(124, 15);
+            total_usr_lb.Location = new Point(34, 15);
             total_usr_lb.Name = "total_usr_lb";
             total_usr_lb.Size = new Size(65, 29);
             total_usr_lb.TabIndex = 1;
@@ -241,58 +239,41 @@
             // total_brands_lb
             // 
             total_brands_lb.AutoSize = true;
-            total_brands_lb.Location = new Point(124, 13);
+            total_brands_lb.Location = new Point(34, 13);
             total_brands_lb.Name = "total_brands_lb";
             total_brands_lb.Size = new Size(67, 29);
             total_brands_lb.TabIndex = 1;
             total_brands_lb.Text = "label4";
             // 
-            // latest_req_groupBox
+            // latest_book_groupBox
             // 
-            latest_req_groupBox.Controls.Add(latest_req);
-            latest_req_groupBox.Font = new Font("Lexend Deca Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            latest_req_groupBox.Location = new Point(396, 76);
-            latest_req_groupBox.Name = "latest_req_groupBox";
-            latest_req_groupBox.Size = new Size(473, 365);
-            latest_req_groupBox.TabIndex = 29;
-            latest_req_groupBox.TabStop = false;
-            latest_req_groupBox.Text = "Latest Request";
+            latest_book_groupBox.Controls.Add(latest_book_DataGridView);
+            latest_book_groupBox.Font = new Font("Lexend Deca Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            latest_book_groupBox.Location = new Point(396, 76);
+            latest_book_groupBox.Name = "latest_book_groupBox";
+            latest_book_groupBox.Size = new Size(473, 365);
+            latest_book_groupBox.TabIndex = 29;
+            latest_book_groupBox.TabStop = false;
+            latest_book_groupBox.Text = "Latest Booking";
             // 
-            // latest_req
+            // latest_book_DataGridView
             // 
-            latest_req.AllowUserToAddRows = false;
-            latest_req.AllowUserToDeleteRows = false;
-            latest_req.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            latest_req.Columns.AddRange(new DataGridViewColumn[] { req_from, device_type });
-            latest_req.Location = new Point(10, 35);
-            latest_req.Name = "latest_req";
-            latest_req.ReadOnly = true;
-            latest_req.RowHeadersWidth = 51;
-            latest_req.Size = new Size(457, 324);
-            latest_req.TabIndex = 0;
-            // 
-            // req_from
-            // 
-            req_from.HeaderText = "Request From";
-            req_from.MinimumWidth = 6;
-            req_from.Name = "req_from";
-            req_from.ReadOnly = true;
-            req_from.Width = 150;
-            // 
-            // device_type
-            // 
-            device_type.HeaderText = "Device Type";
-            device_type.MinimumWidth = 6;
-            device_type.Name = "device_type";
-            device_type.ReadOnly = true;
-            device_type.Width = 150;
+            latest_book_DataGridView.AllowUserToAddRows = false;
+            latest_book_DataGridView.AllowUserToDeleteRows = false;
+            latest_book_DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            latest_book_DataGridView.Location = new Point(10, 35);
+            latest_book_DataGridView.Name = "latest_book_DataGridView";
+            latest_book_DataGridView.ReadOnly = true;
+            latest_book_DataGridView.RowHeadersWidth = 51;
+            latest_book_DataGridView.Size = new Size(457, 324);
+            latest_book_DataGridView.TabIndex = 0;
             // 
             // Admin_Dashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(902, 532);
-            Controls.Add(latest_req_groupBox);
+            Controls.Add(latest_book_groupBox);
             Controls.Add(total_brands_panel);
             Controls.Add(total_booking_panel);
             Controls.Add(total_dev_panel);
@@ -310,8 +291,8 @@
             total_usr_panel.PerformLayout();
             total_brands_panel.ResumeLayout(false);
             total_brands_panel.PerformLayout();
-            latest_req_groupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)latest_req).EndInit();
+            latest_book_groupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)latest_book_DataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -340,9 +321,7 @@
         private Label total_usr_lb;
         private Panel total_brands_panel;
         private Label total_brands_lb;
-        private GroupBox latest_req_groupBox;
-        private DataGridView latest_req;
-        private DataGridViewTextBoxColumn req_from;
-        private DataGridViewTextBoxColumn device_type;
+        private GroupBox latest_book_groupBox;
+        private DataGridView latest_book_DataGridView;
     }
 }

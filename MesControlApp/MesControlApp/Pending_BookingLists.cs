@@ -128,7 +128,7 @@ namespace MesControlApp
         // Show Booking Details
         private void ShowBookingDetails(int bookingID)
         {
-            Detail_Pending detailsForm = new Detail_Pending(bookingID);
+            BookingDetail detailsForm = new BookingDetail(bookingID);
             detailsForm.ShowDialog();
         }
 

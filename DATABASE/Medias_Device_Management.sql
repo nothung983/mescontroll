@@ -1,5 +1,6 @@
 CREATE DATABASE mediaz_db;
 USE mediaz_db;
+DROP DATABASE mediaz_db;
 
 -- USERS TABLE
 CREATE TABLE Users(
@@ -11,6 +12,7 @@ CREATE TABLE Users(
     User_Role NVARCHAR(50) DEFAULT 'User' CHECK (User_Role IN ('User', 'Admin')) NOT NULL,
     CreatedAt DATETIME DEFAULT GETDATE()
 );
+ALter table users Add User_Image NVARCHAR(500) NULL;
 
 -- BRANDS TABLE
 CREATE TABLE Brands(
@@ -80,17 +82,17 @@ CREATE TABLE Requests (
 
 
 -- Insert Users
-INSERT INTO Users (User_fullname, User_Pass, User_Phone_Num, User_Email, User_Role) VALUES
-('Alice Johnson', 'password123', '1234567890', 'alice@example.com', 'User'),
-('Bob Smith', 'securePass1', '0987654321', 'bob@example.com', 'User'),
-('Charlie Brown', 'pass456', '1122334455', 'charlie@example.com', 'Admin'),
-('David Miller', 'testPass4', '2233445566', 'david@example.com', 'User'),
-('Emma Wilson', 'helloWorld', '3344556677', 'emma@example.com', 'User'),
-('Frank Thomas', 'secureMe', '4455667788', 'frank@example.com', 'User'),
-('Grace Hall', 'pass789', '5566778899', 'grace@example.com', 'Admin'),
-('Hannah Scott', 'strongPass', '6677889900', 'hannah@example.com', 'User'),
-('Ian Adams', 'pass101', '7788990011', 'ian@example.com', 'User'),
-('Jessica Lopez', 'test1234', '8899001122', 'jessica@example.com', 'User');
+INSERT INTO Users (User_fullname, User_Pass, User_Phone_Num, User_Email, User_Role, User_Image) VALUES
+('Alice Johnson', 'password123', '1234567890', 'alice@example.com', 'User', '1.png'),
+('Bob Smith', 'securePass1', '0987654321', 'bob@example.com', 'User', '2.png'),
+('Charlie Brown', 'pass456', '1122334455', 'charlie@example.com', 'Admin', '3.png'),
+('David Miller', 'testPass4', '2233445566', 'david@example.com', 'User', '4.png'),
+('Emma Wilson', 'helloWorld', '3344556677', 'emma@example.com', 'User', '5.png'),
+('Frank Thomas', 'secureMe', '4455667788', 'frank@example.com', 'User', '6.png'),
+('Grace Hall', 'pass789', '5566778899', 'grace@example.com', 'Admin', '7.png'),
+('Hannah Scott', 'strongPass', '6677889900', 'hannah@example.com', 'User', '8.png'),
+('Ian Adams', 'pass101', '7788990011', 'ian@example.com', 'User', '9.png'),
+('Jessica Lopez', 'test1234', '8899001122', 'jessica@example.com', 'User', '10.png');
 
 -- Insert Brands
 INSERT INTO Brands (Brand_Name) VALUES
@@ -139,9 +141,49 @@ INSERT INTO Bookings (UserID, CameraID, LensID, AccessoryID, StartDate, EndDate,
 (1, 2, 2, 2, '2025-03-01', '2025-03-07', 'Approved', 3),
 (2, 3, NULL, 1, '2025-03-05', '2025-03-10', 'Pending', NULL);
 
+
+INSERT INTO Bookings (UserID, CameraID, LensID, AccessoryID, StartDate, EndDate, Booking_Status, AdminApprovalID) VALUES
+(3, 5, 2, 3, '2025-03-16', '2025-03-17', 'Approved', 7),
+(3, 2, 4, 2, '2025-03-14', '2025-03-15', 'Approved', 7),
+(3, 1, 2, 3, '2025-03-12', '2025-03-13', 'Approved', 7);
+
+
+INSERT INTO Bookings (UserID, CameraID, LensID, AccessoryID, StartDate, EndDate, Booking_Status, AdminApprovalID) VALUES
+(1, 5, 2, 3, '2025-04-16', '2025-04-17', 'Pending', NULL),
+(1, 2, NULL, 3, '2025-04-11', '2025-04-18', 'Pending', NULL),
+(1, NULL, 2, 2, '2025-04-18', '2025-04-19', 'Pending', NULL),
+(1, 6, 4, 2, '2025-04-14', '2025-04-15', 'Pending', NULL);
+
 -- Insert Requests
 INSERT INTO Requests (UserID, DeviceType, Request_content, Booking_Status, AdminApprovalID) VALUES
 (1, 'Camera', 'Requesting a Canon EOS R5 for a school event shoot.', 'Pending', NULL),
 (2, 'Lens', 'Need a Sony 85mm lens for portrait photography.', 'Approved', 3);
 
-ALter table users Add User_Image NVARCHAR(500) NULL;
+
+select * from Lenses where OwnerID = 3;
+
+
+Select BookingID, StartDate, EndDate, Accessory_Name, Camera_Name, Lenses_name
+from Bookings B
+
+
+select * from users;
+select * from lenses;
+
+select U.User_fullname AS Request_from, R.DeviceType AS Devices From Requests R JOIN Users U ON R.UserID = U.UserID;
+
+SELECT TOP 10  r.RequestID, u.User_fullname, r.DeviceType, r.Request_content, r.CreatedAt 
+                                    FROM Requests r JOIN Users u ON r.UserID = u.UserID ORDER BY r.CreatedAt DESC;
+
+desc Users;
+
+SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH 
+FROM INFORMATION_SCHEMA.COLUMNS 
+WHERE TABLE_NAME = 'Users' AND COLUMN_NAME = 'User_Phone_Num';
+
+ALTER TABLE Users ALTER COLUMN User_Phone_Num VARCHAR(15);
+
+
+select * from Requests;
+select * from Bookings;
+

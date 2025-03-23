@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\MesControlApp.csproj": {}
+    "D:\\NAM IV\\.NET\\PROJECT\\mescontroll\\MesControlApp\\MesControlApp\\MesControlApp.csproj": {}
   },
   "projects": {
-    "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\MesControlApp.csproj": {
+    "D:\\NAM IV\\.NET\\PROJECT\\mescontroll\\MesControlApp\\MesControlApp\\MesControlApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\MesControlApp.csproj",
+        "projectUniqueName": "D:\\NAM IV\\.NET\\PROJECT\\mescontroll\\MesControlApp\\MesControlApp\\MesControlApp.csproj",
         "projectName": "MesControlApp",
-        "projectPath": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\MesControlApp.csproj",
-        "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\.Net\\test\\mescontroll\\MesControlApp\\MesControlApp\\obj\\",
+        "projectPath": "D:\\NAM IV\\.NET\\PROJECT\\mescontroll\\MesControlApp\\MesControlApp\\MesControlApp.csproj",
+        "packagesPath": "C:\\Users\\dangh\\.nuget\\packages\\",
+        "outputPath": "D:\\NAM IV\\.NET\\PROJECT\\mescontroll\\MesControlApp\\MesControlApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\APPS\\Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dangh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -51,6 +51,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.9.0, )"
@@ -75,7 +79,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
